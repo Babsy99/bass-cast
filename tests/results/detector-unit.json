@@ -1,0 +1,202 @@
+{
+  "at": "2026-11-19T04:04:43.445Z",
+  "pass": 14,
+  "fail": 0,
+  "results": [
+    {
+      "name": "X+ 400°/s no-button casts, learns X+, mid power",
+      "ok": true,
+      "casts": 1,
+      "power": 0.71,
+      "dt": 85,
+      "timing": "good",
+      "lock": {
+        "axis": 0,
+        "sign": 1,
+        "src": "auto",
+        "at": "2026-11-19T04:04:43.431Z"
+      },
+      "wMax": 560,
+      "peak": 394
+    },
+    {
+      "name": "power curve after auto-scale: 300 < 400 < 500, 500 ≈ 0.8-0.95",
+      "ok": true,
+      "powers": {
+        "300": 0.55,
+        "400": 0.73,
+        "500": 0.89,
+        "600": 1
+      }
+    },
+    {
+      "name": "weak flick rejected + logged with peaks",
+      "ok": true,
+      "attempt": {
+        "reason": "no_forward",
+        "coach": "Flick forward faster.",
+        "back": 119,
+        "fwd": 0,
+        "axes": [
+          119,
+          29,
+          23
+        ]
+      }
+    },
+    {
+      "name": "button: +60 ms good, +300 ms late (accepted ≤450), −40 ms accepted early",
+      "ok": true,
+      "good": 75,
+      "late": 300,
+      "early": -18
+    },
+    {
+      "name": "button: held 600 ms -> held_too_long; let go in backswing, no flick -> released_early",
+      "ok": true,
+      "held": "held_too_long",
+      "early": "released_early",
+      "coachHeld": "Let go right after the flick (you held on too long)."
+    },
+    {
+      "name": "grip change X->Y: wrong_axis then re-learn Y and cast",
+      "ok": true,
+      "first": [
+        "wrong_axis"
+      ],
+      "second": [
+        "cast"
+      ],
+      "lock": {
+        "axis": 1,
+        "sign": 1,
+        "src": "auto",
+        "at": "2026-11-19T04:04:43.438Z"
+      }
+    },
+    {
+      "name": "timid first swing (210°/s) then 420°/s: second is not maxed out",
+      "ok": true,
+      "first": 0.45,
+      "second": 0.91,
+      "wMax": 457
+    },
+    {
+      "name": "fresh X− casts first swing + learns it",
+      "ok": true,
+      "first": 0.67,
+      "second": 0.7,
+      "lock": {
+        "axis": 0,
+        "sign": -1,
+        "src": "auto",
+        "at": "2026-11-19T04:04:43.440Z"
+      }
+    },
+    {
+      "name": "fresh Y+ casts first swing + learns it",
+      "ok": true,
+      "first": 0.7,
+      "second": 0.68,
+      "lock": {
+        "axis": 1,
+        "sign": 1,
+        "src": "auto",
+        "at": "2026-11-19T04:04:43.440Z"
+      }
+    },
+    {
+      "name": "fresh Y− casts first swing + learns it",
+      "ok": true,
+      "first": 0.68,
+      "second": 0.69,
+      "lock": {
+        "axis": 1,
+        "sign": -1,
+        "src": "auto",
+        "at": "2026-11-19T04:04:43.441Z"
+      }
+    },
+    {
+      "name": "fresh Z− casts first swing + learns it",
+      "ok": true,
+      "first": 0.7,
+      "second": 0.7,
+      "lock": {
+        "axis": 2,
+        "sign": -1,
+        "src": "auto",
+        "at": "2026-11-19T04:04:43.441Z"
+      }
+    },
+    {
+      "name": "300/450/900 traces: all cast; 300 and 450 mid-range, 900 maxed and flagged too hard",
+      "ok": true,
+      "firstSwing450": {
+        "power": 0.82,
+        "ft": 112
+      },
+      "afterAutoScale": {
+        "300": {
+          "peak": 298,
+          "power": 0.53,
+          "ft": 74.4,
+          "timing": "good",
+          "tooHard": false
+        },
+        "450": {
+          "peak": 449,
+          "power": 0.81,
+          "ft": 110.9,
+          "timing": "good",
+          "tooHard": false
+        },
+        "900": {
+          "peak": 902,
+          "power": 1,
+          "ft": 135.9,
+          "timing": "good",
+          "tooHard": true
+        }
+      },
+      "defaultCurve": {
+        "300": {
+          "power": 0.53,
+          "ft": 74.8
+        },
+        "450": {
+          "power": 0.82,
+          "ft": 112.3
+        },
+        "900": {
+          "power": 1,
+          "ft": 135.9
+        }
+      },
+      "wMax": 560
+    },
+    {
+      "name": "old bug reproduced: X swing shows small rr[1] (beta) — old forward threshold 150/260",
+      "ok": true,
+      "peakBetaDps": 63,
+      "peakAlphaDps": 401
+    },
+    {
+      "name": "touch: normal flick 60-70%, long+fast = max, fast-but-short well below max",
+      "ok": true,
+      "normalSpeedLen": [
+        4.2,
+        0.32
+      ],
+      "longFastSpeedLen": [
+        9.5,
+        0.92
+      ],
+      "lazy": 0.47,
+      "normal": 0.62,
+      "fastShort": 0.62,
+      "longFast": 1,
+      "oldCurveNormal": 1
+    }
+  ]
+}
