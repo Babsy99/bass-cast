@@ -38,5 +38,7 @@ export class Sfx {
   zing(dur: number) { this.noiseBurst(Math.min(2.5, dur), 5200, 2600, 6, 0.08); }
   splash(size: number) { this.noiseBurst(0.6, 1800, 300, 0.7, 0.3 + size * 0.3, 'lowpass'); this.tone(180, 0.15, 0.12, 'sine'); }
   good() { this.tone(660, 0.12, 0.12); this.tone(990, 0.18, 0.1, 'sine', 0.1); }
+  /** Lag-proof beep: Mac uses 1760 Hz (phone uses 880 Hz) so a recording can tell them apart. */
+  beep(freq = 1760) { this.tone(freq, 0.07, 0.35, 'square'); }
   bad() { this.tone(240, 0.22, 0.12, 'triangle'); }
 }

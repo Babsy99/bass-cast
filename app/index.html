@@ -12,7 +12,20 @@
   <div id="brand" class="hud">BASS CAST · spike</div>
   <div id="pill" class="hud pill starting"><b>Starting…</b></div>
 
-  <div id="qrCard" class="hud">
+  <div id="setup" class="hud" hidden>
+    <h1>Before you scan</h1>
+    <ol>
+      <li>Have your iPhone unlocked, on any network (same Wi-Fi is fastest, not required).</li>
+      <li>When the code appears, open the iPhone <b>Camera</b>, point it at the code, tap the link.</li>
+      <li>Tap <b>Allow motion and connect</b>, then <b>Allow</b> on the motion prompt.</li>
+      <li>Casting: hold the phone <b>upright like a rod handle</b>, screen facing you. Swing it back over your shoulder, then flick forward. That's it — <b>no button needed</b>. Holding the button is optional (let go to release).</li>
+      <li>A relaxed wrist flick is a normal cast. You never need to throw hard: anything over 500°/s is "too hard" in the test.</li>
+    </ol>
+    <p class="sub">The pairing clock starts when you press Show QR and stops at your first cast.</p>
+    <button id="btnShowQrNow">Show QR</button>
+  </div>
+
+  <div id="qrCard" class="hud" hidden>
     <h1>Scan to cast</h1>
     <p>Open your iPhone camera, scan, tap once.</p>
     <canvas id="qr" width="320" height="320"></canvas>
@@ -21,7 +34,10 @@
     <p style="font-size:12px;opacity:.7">Controller page: <span id="padHost"></span></p>
   </div>
 
-  <div id="grip" class="hud" hidden>✋ Grip the phone firmly.<br/>Hold the big button · swing back · flick forward · let go.</div>
+  <div id="grip" class="hud" hidden>✋ Hold the phone upright like a rod handle.<br/>Swing back · flick forward. No button needed.</div>
+  <canvas id="gyro" class="hud" hidden></canvas>
+  <div id="feel" class="hud" hidden>Felt relaxed? <button id="feelUp">👍</button> <button id="feelDown">👎</button></div>
+  <div id="lpSquare" hidden></div>
   <div id="calOffer" class="hud" hidden>Optional: tune casting power to your swing?<br/>
     <button id="calYes">Calibrate (1 swing)</button> <button id="calNo">Skip</button></div>
   <div id="testInfo" class="hud" hidden></div>
@@ -29,7 +45,7 @@
   <div id="debug" class="hud" hidden></div>
   <div id="paused" class="hud" hidden>Controller paused</div>
 
-  <div id="distBox" class="hud"><div id="dist">— ft</div><div id="distSub">Hold the button, swing back, flick, let go.</div></div>
+  <div id="distBox" class="hud"><div id="dist">— ft</div><div id="distSub">Swing back, flick forward.</div></div>
 
   <div id="toolbar" class="hud">
     <button id="btnTest10">Test 10 casts</button>
@@ -45,13 +61,22 @@
     <h3>Controls</h3>
     <label class="tgl"><input type="checkbox" id="touchToggle" /> Touch-cast fallback</label>
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin:6px 0">
-      <button id="btnCal">Calibrate (optional)</button>
+      <button id="btnCal">Re-tune power (1 swing)</button>
       <button id="btnExportCasts">Export casts JSON</button>
       <button id="btnExportLat">Export latency JSON</button>
       <button id="btnNewSession">New session / QR</button>
     </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0">
+      <label>Swing axis <select id="axisSel">
+        <option value="auto">auto (learn)</option><option value="x+">X+ (alpha)</option><option value="x-">X− (alpha)</option>
+        <option value="y+">Y+ (beta)</option><option value="y-">Y− (beta)</option><option value="z+">Z+ (gamma)</option><option value="z-">Z− (gamma)</option>
+      </select></label> <span id="axisNote" class="sub"></span>
+      <label class="tgl"><input type="checkbox" id="lagProof" /> Lag proof (flash + beep)</label>
+    </div>
     <h3>Last 10 casts</h3>
     <table id="castLog"></table>
+    <h3>Last swing attempts (incl. rejects)</h3>
+    <table id="attLog"></table>
   </div>
 
   <div id="exportDlg" class="hud" hidden>
