@@ -1,0 +1,488 @@
+{
+  "startedAt": "2026-11-19T03:35:34.031Z",
+  "env": {
+    "peerjsBroker": true,
+    "chromePolicy": "{\"WebRtcIPHandlingUrl\":[{\"url\":\"*\",\"handling\":\"disable_non_proxied_udp\"}]}"
+  },
+  "errors": [],
+  "setupShot": true,
+  "setupClockBeforeClick": 0,
+  "renderer": {
+    "overlay": "12 fps · WebGL2 · 80% res",
+    "why": "WebGPU device was lost earlier this session",
+    "gpuLost": "destroyed"
+  },
+  "padUrlShape": "http://127.0.0.1:5174/#s=<22-char base64url, 128-bit>&m=ws%3A%2F%2F127.0.0.1%3A9001",
+  "firstConnectMs": 3038,
+  "webrtc": {
+    "peerOpenAtBroker": true,
+    "rtcReady": false,
+    "iceState": "new",
+    "signalingState": "stable",
+    "localCandidates": [
+      "host/tcp/0.0.0.0",
+      "host/tcp/::"
+    ],
+    "via": "MQTT relay",
+    "hostSawOffer": true
+  },
+  "video": {
+    "frames": 87,
+    "file": "/workspace/bass-cast-spike/shots/cast.mp4"
+  },
+  "syntheticCasts": {
+    "note": "realistic iPhone-like traces on rotationRate.alpha (X), backswing +; relaxed peaks 220-430 deg/s",
+    "weak": {
+      "distFt": 62.1,
+      "power": 0.43200000000000005,
+      "peak_dps": 212,
+      "mode": "free",
+      "axis": "X+",
+      "releaseDtMs": 81,
+      "timing": "good",
+      "launchDeg": 30,
+      "aimDeg": 0,
+      "landAimDeg": 0,
+      "path": "mqtt-relay",
+      "link": "relay"
+    },
+    "goodNoButton": {
+      "distFt": 126.2,
+      "power": 0.9259999999999999,
+      "peak_dps": 423,
+      "mode": "free",
+      "axis": "X+",
+      "releaseDtMs": 78,
+      "timing": "good",
+      "launchDeg": 30,
+      "aimDeg": 0,
+      "landAimDeg": 0,
+      "path": "mqtt-relay",
+      "link": "relay"
+    },
+    "lateButton320ms": {
+      "distFt": 51.3,
+      "power": 0.935,
+      "peak_dps": 427,
+      "mode": "button",
+      "axis": "X+",
+      "releaseDtMs": 314,
+      "timing": "late",
+      "launchDeg": 3.6,
+      "aimDeg": 0,
+      "landAimDeg": 0,
+      "path": "mqtt-relay",
+      "link": "relay"
+    },
+    "earlyButtonMinus60ms": {
+      "distFt": 127.3,
+      "power": 0.9470000000000001,
+      "peak_dps": 432,
+      "mode": "button",
+      "axis": "X+",
+      "releaseDtMs": -56,
+      "timing": "early",
+      "launchDeg": 33.3,
+      "aimDeg": 0,
+      "landAimDeg": 0,
+      "path": "mqtt-relay",
+      "link": "relay"
+    },
+    "aimedRight12": {
+      "distFt": 115.2,
+      "power": 0.843,
+      "peak_dps": 385,
+      "mode": "free",
+      "axis": "X+",
+      "releaseDtMs": 56,
+      "timing": "good",
+      "launchDeg": 30,
+      "aimDeg": 12,
+      "landAimDeg": 12,
+      "path": "mqtt-relay",
+      "link": "relay"
+    },
+    "orderOk": true
+  },
+  "touchCastPad": {
+    "distFt": 101,
+    "power": 0.736,
+    "peak_dps": null,
+    "releaseDtMs": 118,
+    "timing": "good",
+    "launchDeg": 30,
+    "aimDeg": 3.3,
+    "landAimDeg": 3.3,
+    "path": "mqtt-relay",
+    "link": "relay"
+  },
+  "touchCastHostMouse": {
+    "distFt": 75.8,
+    "power": 0.542,
+    "peak_dps": null,
+    "releaseDtMs": 0,
+    "timing": "good",
+    "launchDeg": 30,
+    "aimDeg": -4.4,
+    "landAimDeg": -4.4,
+    "path": "local",
+    "link": "local"
+  },
+  "test10": {
+    "score": "8/10",
+    "summaryText": "Test 10 done: 8/10 count (need 8; rule: on target, peak ≤500°/s, felt relaxed 👍)\n1. 103 ft → 97 ft · 324°/s · ✅ counts\n2. 95 ft → 94 ft · 314°/s · ✅ counts\n3. 85 ft → 136 ft · 641°/s · ❌ Long by 51 ft, 641°/s too hard, doesn't count\n4. 59 ft → 58 ft · 199°/s · ✅ counts\n5. 87 ft → 88 ft · 295°/s · ❌ 👎 not relaxed\n6. 63 ft → 63 ft · 216°/s · ✅ counts\n7. 68 ft → 70 ft · 238°/s · ✅ counts\n8. 105 ft → 102 ft · 339°/s · ✅ counts\n9. 53 ft → 54 ft · 185°/s · ✅ counts\n10. 88 ft → 88 ft · 295°/s · ✅ counts",
+    "rows": [
+      {
+        "intendedFt": 103,
+        "distFt": 97.1,
+        "missText": "",
+        "missFt": -6,
+        "missDeg": 3.4,
+        "peak_dps": 324,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 95,
+        "distFt": 94.2,
+        "missText": "",
+        "missFt": -1,
+        "missDeg": -2.3,
+        "peak_dps": 314,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 85,
+        "distFt": 135.9,
+        "missText": "Long by 51 ft",
+        "missFt": 51,
+        "missDeg": 0.3,
+        "peak_dps": 641,
+        "tooHard": true,
+        "relaxed": true,
+        "good": false,
+        "counts": false
+      },
+      {
+        "intendedFt": 59,
+        "distFt": 57.9,
+        "missText": "",
+        "missFt": -1,
+        "missDeg": 2,
+        "peak_dps": 199,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 87,
+        "distFt": 88.2,
+        "missText": "",
+        "missFt": 1,
+        "missDeg": 0.3,
+        "peak_dps": 295,
+        "tooHard": false,
+        "relaxed": false,
+        "good": true,
+        "counts": false
+      },
+      {
+        "intendedFt": 63,
+        "distFt": 63.4,
+        "missText": "",
+        "missFt": 0,
+        "missDeg": 1.1,
+        "peak_dps": 216,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 68,
+        "distFt": 70.3,
+        "missText": "",
+        "missFt": 2,
+        "missDeg": -2.1,
+        "peak_dps": 238,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 105,
+        "distFt": 101.7,
+        "missText": "",
+        "missFt": -3,
+        "missDeg": 1.7,
+        "peak_dps": 339,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 53,
+        "distFt": 53.5,
+        "missText": "",
+        "missFt": 0,
+        "missDeg": -3.6,
+        "peak_dps": 185,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      },
+      {
+        "intendedFt": 88,
+        "distFt": 88.3,
+        "missText": "",
+        "missFt": 0,
+        "missDeg": -0.3,
+        "peak_dps": 295,
+        "tooHard": false,
+        "relaxed": true,
+        "good": true,
+        "counts": true
+      }
+    ],
+    "ruleOk": true
+  },
+  "motion": {
+    "X+": {
+      "first400": {
+        "power": 0.733,
+        "distFt": 100.6,
+        "peak_dps": 406,
+        "mode": "free"
+      },
+      "at300": {
+        "power": 0.529,
+        "distFt": 74.1
+      },
+      "at500": {
+        "power": 0.893,
+        "distFt": 121.8
+      },
+      "learned": {
+        "axis": 0,
+        "sign": 1,
+        "src": "auto",
+        "at": "2026-11-19T03:37:16.811Z"
+      },
+      "persisted": true,
+      "autoScale": {
+        "wMax": 560,
+        "from": 406
+      },
+      "attempts": [
+        "cast",
+        "cast",
+        "cast"
+      ],
+      "rejects": {
+        "weak": [
+          {
+            "reason": "no_forward",
+            "coach": "Flick forward faster.",
+            "backPeak": 127,
+            "fwdPeak": 0,
+            "axisPeaks": [
+              127,
+              32,
+              22
+            ],
+            "mode": "free"
+          }
+        ],
+        "heldTooLong": [
+          {
+            "reason": "held_too_long",
+            "coach": "Let go right after the flick (you held on too long).",
+            "backPeak": 224,
+            "fwdPeak": 400,
+            "axisPeaks": [
+              400,
+              59,
+              58
+            ],
+            "mode": "button"
+          }
+        ],
+        "releasedEarly": [
+          {
+            "reason": "released_early",
+            "coach": "Keep holding until you flick forward, then let go.",
+            "backPeak": 228,
+            "fwdPeak": 0,
+            "axisPeaks": [
+              228,
+              62,
+              30
+            ],
+            "mode": "button"
+          }
+        ],
+        "padCoachAfterWeak": "Flick forward faster."
+      },
+      "exportHasAttempts": {
+        "n": 6,
+        "stats": {
+          "cast": 3,
+          "no_forward": 1,
+          "held_too_long": 1,
+          "released_early": 1
+        }
+      },
+      "lagProof": {
+        "padFlashes": 1,
+        "hostFlashes": 1,
+        "flashGapMs": 78,
+        "measuredLagMs": 120.4,
+        "link": "relay",
+        "ice": null,
+        "cast": 103.6,
+        "note": "same box: both clocks share one epoch, so the flash gap ~= flick->whip lag"
+      }
+    },
+    "X-": {
+      "first400": {
+        "power": 0.718,
+        "distFt": 98.7,
+        "peak_dps": 397,
+        "mode": "free"
+      },
+      "at300": {
+        "power": 0.5429999999999999,
+        "distFt": 75.8
+      },
+      "at500": {
+        "power": 0.9059999999999999,
+        "distFt": 123.5
+      },
+      "learned": {
+        "axis": 0,
+        "sign": -1,
+        "src": "auto",
+        "at": "2026-11-19T03:37:54.421Z"
+      },
+      "persisted": true,
+      "autoScale": {
+        "wMax": 560,
+        "from": 397
+      },
+      "attempts": [
+        "cast",
+        "cast",
+        "cast"
+      ]
+    },
+    "Y+": {
+      "first400": {
+        "power": 0.721,
+        "distFt": 99.1,
+        "peak_dps": 399,
+        "mode": "free"
+      },
+      "at300": {
+        "power": 0.5379999999999999,
+        "distFt": 75.4
+      },
+      "at500": {
+        "power": 0.9079999999999999,
+        "distFt": 123.8
+      },
+      "learned": {
+        "axis": 1,
+        "sign": 1,
+        "src": "auto",
+        "at": "2026-11-19T03:38:19.024Z"
+      },
+      "persisted": true,
+      "autoScale": {
+        "wMax": 560,
+        "from": 399
+      },
+      "attempts": [
+        "cast",
+        "cast",
+        "cast"
+      ]
+    }
+  },
+  "b0a": {
+    "padState": "rejected:used",
+    "hostLog": [
+      "2026-11-19T03:38:33.602Z REJECTED join over MQTT: used"
+    ]
+  },
+  "reconnect": {
+    "killChannel": {
+      "framesBackAfterMs": 1525,
+      "hostLog": [
+        {
+          "at": "2026-11-19T03:38:35.908Z",
+          "hostGapMs": 1518,
+          "padReconnectMs": null,
+          "via": "mqtt"
+        }
+      ],
+      "castAfter": 123.1
+    },
+    "sleep": {
+      "hostDuringSleep": "paused",
+      "tapToResumeShown": true,
+      "wakeToControllingMs": 2344,
+      "hostLog": [
+        {
+          "at": "2026-11-19T03:39:10.560Z",
+          "hostGapMs": 31528,
+          "padReconnectMs": null,
+          "via": "mqtt"
+        },
+        {
+          "at": "2026-11-19T03:39:12.616Z",
+          "hostGapMs": 33584,
+          "padReconnectMs": null,
+          "via": "mqtt"
+        }
+      ],
+      "castAfter": 123.1
+    },
+    "reload": {
+      "button": "Tap to resume",
+      "tapToControllingMs": 3264,
+      "castAfter": 123.1
+    },
+    "cameraContext": {
+      "fragmentHasPairing": true,
+      "tapToControllingMs": 36118,
+      "castAfter": 123.4
+    },
+    "hostReload": {
+      "ok": true,
+      "ms": 2046,
+      "qrHidden": true
+    }
+  },
+  "b0aExpired": {
+    "padState": "rejected:expired",
+    "padText": "This QR code expired.",
+    "hostStatus": "waiting",
+    "hostLog": [
+      "2026-11-19T03:40:10.229Z REJECTED join over MQTT: expired"
+    ]
+  },
+  "consoleErrors": {
+    "count": 0,
+    "sample": []
+  },
+  "finishedAt": "2026-11-19T03:40:10.995Z"
+}

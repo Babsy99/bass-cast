@@ -1,0 +1,74 @@
+{
+  "startedAt": "2026-11-19T03:59:28.046Z",
+  "env": {
+    "peerjsBroker": true,
+    "chromePolicy": "{\"WebRtcIPHandlingUrl\":[{\"url\":\"*\",\"handling\":\"disable_non_proxied_udp\"}]}"
+  },
+  "errors": [],
+  "pairings": [
+    {
+      "ok": true,
+      "setupShown": true,
+      "hostLoadMs": 3287,
+      "tapToConnectedMs": 3163,
+      "qrToFirstCastMs": 4524,
+      "scanToFirstCastMs": 688,
+      "path": "mqtt-relay",
+      "distFt": 102.1
+    },
+    {
+      "ok": true,
+      "setupShown": true,
+      "hostLoadMs": 1747,
+      "tapToConnectedMs": 3085,
+      "qrToFirstCastMs": 4317,
+      "scanToFirstCastMs": 714,
+      "path": "mqtt-relay",
+      "distFt": 102.4
+    },
+    {
+      "ok": true,
+      "setupShown": true,
+      "hostLoadMs": 1649,
+      "tapToConnectedMs": 3062,
+      "qrToFirstCastMs": 4464,
+      "scanToFirstCastMs": 828,
+      "path": "mqtt-relay",
+      "distFt": 102.3
+    },
+    {
+      "ok": true,
+      "setupShown": true,
+      "hostLoadMs": 1538,
+      "tapToConnectedMs": 3124,
+      "qrToFirstCastMs": 4325,
+      "scanToFirstCastMs": 697,
+      "path": "mqtt-relay",
+      "distFt": 102.2
+    },
+    {
+      "ok": true,
+      "setupShown": true,
+      "hostLoadMs": 1891,
+      "tapToConnectedMs": 3023,
+      "qrToFirstCastMs": 4495,
+      "scanToFirstCastMs": 887,
+      "path": "mqtt-relay",
+      "distFt": 102.1
+    }
+  ],
+  "setupShot": true,
+  "setupClockBeforeClick": 0,
+  "pairingSummary": {
+    "success": "5/5",
+    "tapToConnectedMedianMs": 3085,
+    "qrToFirstCastMedianMs": 4464,
+    "scanToFirstCastMedianMs": 714,
+    "max": 4524
+  },
+  "consoleErrors": {
+    "count": 0,
+    "sample": []
+  },
+  "finishedAt": "2026-11-19T04:00:14.782Z"
+}
