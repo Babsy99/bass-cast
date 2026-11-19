@@ -1,0 +1,15 @@
+{
+  "name": "bass-cast-spike",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Bass Cast spike: Mac game host + phone motion controller (M0/B0)",
+  "workspaces": ["app", "pad"],
+  "scripts": {
+    "dev:app": "npm run dev -w app",
+    "dev:pad": "npm run dev -w pad",
+    "build": "npm run build -w pad && npm run build -w app",
+    "typecheck": "npm run typecheck -w app && npm run typecheck -w pad",
+    "test": "node tests/run-all.mjs"
+  },
+  "license": "MIT"
+}

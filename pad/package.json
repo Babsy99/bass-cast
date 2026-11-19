@@ -1,0 +1,20 @@
+{
+  "name": "bass-cast-pad",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5174 --strictPort --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --port 5174 --strictPort --host 127.0.0.1",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "mqtt": "^5.10.1",
+    "peerjs": "^1.5.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0"
+  }
+}
