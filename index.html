@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="referrer" content="no-referrer" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23ffb547%22/%3E%3C/svg%3E" />
+  <title>Bass Cast · controller</title>
+  <script type="module" crossorigin src="/bass-cast/assets/index-CnP-g6ZK.js"></script>
+  <link rel="stylesheet" crossorigin href="/bass-cast/assets/index-CAH-gLvz.css">
+</head>
+<body>
+  <header><b>BASS CAST</b><span id="pill" class="pill">Not connected</span></header>
+  <main id="start" hidden>
+    <button id="go">Allow motion and connect</button>
+    <p class="sub">Your phone becomes the rod. Motion data goes only to the game on your computer.</p>
+    <button id="touchOnly" class="link">No motion? Use touch-cast</button>
+  </main>
+  <main id="ctl" hidden>
+    <div id="permErr" class="err" hidden></div>
+    <button id="bail">HOLD<br/>bail open</button>
+    <div id="touchPad" hidden>drag ↓ then flick ↑</div>
+    <div id="hint">Hold the button · swing back · flick forward · let go.</div>
+    <label><input type="checkbox" id="touchToggle" /> Touch-cast fallback</label>
+    <div id="rate"></div>
+  </main>
+  <main id="rejected" hidden>
+    <h2>Can't join</h2>
+    <p id="rejWhy" class="sub"></p>
+    <p class="sub">Scan the new QR code on the game screen.</p>
+  </main>
+  <main id="nocode" hidden>
+    <h2>Scan the QR code</h2>
+    <p class="sub">Open the Bass Cast game on your computer and scan its QR code with the iPhone camera.</p>
+  </main>
+  <button id="resume" hidden>Tap to resume</button>
+</body>
+</html>
