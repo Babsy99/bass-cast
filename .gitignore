@@ -1,0 +1,11 @@
+node_modules/
+dist/
+app/src-tauri/target/
+app/src-tauri/gen/schemas/
+*.dmg
+.DS_Store
+.env*
+app/src-tauri/Cargo.lock
+shots/
+app/src-tauri/icons/
+app/src-tauri/app-icon.png
