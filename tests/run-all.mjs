@@ -47,8 +47,23 @@ async function newHost(q = Q, vp = { width: 1280, height: 720 }) {
   watchConsole(page, 'host', errors);
   const t0 = Date.now();
   await page.goto(APP + q, { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => window.__padUrl && window.__game && window.__game.pairingClock.startAt, { timeout: 30000 });
-  return { ctx, page, loadMs: Date.now() - t0 };
+  // Setup screen comes first (reading time is not pairing time); one click on "Show QR" starts the clock.
+  // Retry loop: headless WebGPU can lose its device and reload the page into WebGL2 at any moment.
+  let setupShown = false;
+  for (let k = 0; k < 4; k++) {
+    try {
+      if (k === 0 && !q.includes('renderer=webgl2')) await sleep(4000); // let the headless WebGPU probe / device-lost reload settle
+      await page.waitForFunction(() => window.__game && (window.__padUrl || !document.querySelector('#setup').hidden), { timeout: 20000 });
+      if (await page.evaluate(() => !document.querySelector('#setup').hidden)) {
+        setupShown = true;
+        if (!R.setupShot) { await Promise.race([page.screenshot({ path: SHOTS + 'host-setup-before-qr.png' }), sleep(5000)]); R.setupShot = true; R.setupClockBeforeClick = await page.evaluate(() => window.__game.pairingClock.startAt); }
+        await page.evaluate(() => document.querySelector('#btnShowQrNow').click());
+      }
+      await page.waitForFunction(() => window.__padUrl && window.__game && window.__game.pairingClock.startAt, { timeout: 8000 });
+      break;
+    } catch (e) { if (k === 3) throw e; await sleep(500); }
+  }
+  return { ctx, page, loadMs: Date.now() - t0, setupShown };
 }
 async function newPad(url, name = 'pad', ctx = null) {
   ctx = ctx || (await browser.createBrowserContext()); // fresh context == Safari website data cleared
@@ -116,7 +131,7 @@ if (want('basic')) {
 
   // ------------------------------------------------------------ T1 synthetic casts + screenshots + video
   log('T1 synthetic weak / good / late casts');
-  const weak = await castAndWait(H.page, P.page, { peakW: 450, releaseAfterPeakMs: 30 });
+  const weak = await castAndWait(H.page, P.page, { peakW: 220 });
   await sleep(600);
   // video of the good cast via CDP screencast
   const cdp = await H.page.createCDPSession();
@@ -125,7 +140,7 @@ if (want('basic')) {
   await cdp.send('Page.startScreencast', { format: 'jpeg', quality: 80, maxWidth: 1280, maxHeight: 720, everyNthFrame: 1 });
   await sleep(500);
   const n0 = await H.page.evaluate(() => window.__game.casts.length);
-  const swingP = padSwing(P.page, { peakW: 1000, releaseAfterPeakMs: 30 });
+  const swingP = padSwing(P.page, { peakW: 430, seed: 2 });
   await swingP;
   await sleep(350);
   await H.page.screenshot({ path: SHOTS + 'host-mid-flight.png' });
@@ -151,14 +166,14 @@ if (want('basic')) {
   }
   R.video = { frames: frames.length, file: SHOTS + 'cast.mp4' };
   await sleep(500);
-  const late = await castAndWait(H.page, P.page, { peakW: 1000, releaseAfterPeakMs: 260 });
+  const late = await castAndWait(H.page, P.page, { peakW: 430, button: true, releaseAfterPeakMs: 320, seed: 3 });
   await sleep(600);
-  const early = await castAndWait(H.page, P.page, { peakW: 1000, releaseAfterPeakMs: -120 });
+  const early = await castAndWait(H.page, P.page, { peakW: 430, button: true, releaseAfterPeakMs: -60, seed: 4 });
   await sleep(600);
-  const aimed = await castAndWait(H.page, P.page, { peakW: 800, releaseAfterPeakMs: 30, aimDeg: 12 });
-  const pick = (c) => ({ distFt: c.distFt, power: c.power, releaseDtMs: c.releaseDtMs, timing: c.timing, launchDeg: c.launchDeg, aimDeg: c.aimDeg, landAimDeg: c.landAimDeg, path: c.path });
-  R.syntheticCasts = { weak: pick(weak), good: pick(good), late: pick(late), early: pick(early), aimedRight12: pick(aimed) };
-  R.syntheticCasts.orderOk = good.distFt > weak.distFt && good.distFt > late.distFt && good.distFt > early.distFt;
+  const aimed = await castAndWait(H.page, P.page, { peakW: 380, aimDeg: 12, seed: 5 });
+  const pick = (c) => ({ distFt: c.distFt, power: c.power, peak_dps: c.peak_dps, mode: c.castMode, axis: c.axis, releaseDtMs: c.releaseDtMs, timing: c.timing, launchDeg: c.launchDeg, aimDeg: c.aimDeg, landAimDeg: c.landAimDeg, path: c.path, link: c.link });
+  R.syntheticCasts = { note: 'realistic iPhone-like traces on rotationRate.alpha (X), backswing +; relaxed peaks 220-430 deg/s', weak: pick(weak), goodNoButton: pick(good), lateButton320ms: pick(late), earlyButtonMinus60ms: pick(early), aimedRight12: pick(aimed) };
+  R.syntheticCasts.orderOk = good.distFt > weak.distFt && good.distFt > late.distFt;
   log('casts', JSON.stringify(R.syntheticCasts));
 
   // ------------------------------------------------------------ T8 touch-cast fallback (pad + host mouse)
@@ -200,19 +215,89 @@ if (want('basic')) {
   const { simulate } = await import('/tmp/bcs-sim.mjs');
   const powerFor = (ft) => { let lo = 0, hi = 1; for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; simulate({ power: m, dt: 30, aim: 0 }).distFt < ft ? (lo = m) : (hi = m); } return (lo + hi) / 2; };
   await H.page.evaluate(() => window.__game.startTest10());
+  const pw = await H.page.evaluate(() => window.__game.det.power);
   let seed = 7; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const feelLog = [];
   for (let i = 0; i < 10; i++) {
     const tg = await H.page.evaluate(() => window.__game.test.target);
-    if (i === 3) await H.page.screenshot({ path: SHOTS + 'host-test10-target.png' });
+    if (i === 3) { await H.page.screenshot({ path: SHOTS + 'host-test10-target.png' }); await P.page.screenshot({ path: SHOTS + 'pad-power-band.png' }); }
     const p = powerFor(tg.ft);
-    // human-ish noise: ±8% swing speed, ±4° aim, ±30 ms release
-    const peakW = (200 + Math.pow(p, 1 / 0.9) * 900) * (1 + (rnd() - 0.5) * 0.16);
-    await castAndWait(H.page, P.page, { peakW, releaseAfterPeakMs: 30 + (rnd() - 0.5) * 60, aimDeg: tg.aim + (rnd() - 0.5) * 8 });
-    await sleep(400);
+    // invert the host's motion power curve; human-ish noise ±6% swing speed, ±4° aim
+    let peakW = (pw.wMin + Math.pow(p, 1 / pw.gamma) * (pw.wMax - pw.wMin)) * (1 + (rnd() - 0.5) * 0.12);
+    if (i === 2) peakW = 640; // deliberately too hard: must be flagged and never count
+    const c = await castAndWait(H.page, P.page, { peakW, aimDeg: tg.aim + (rnd() - 0.5) * 8, seed: 100 + i });
+    // one-tap "Felt relaxed?" on the pad; cast 5 answers 👎
+    await P.page.waitForFunction(() => !document.querySelector('#feel').hidden, { timeout: 5000 }).catch(() => {});
+    if (i === 0) await P.page.screenshot({ path: SHOTS + 'pad-felt-relaxed.png' });
+    const up = i !== 4;
+    await P.page.tap(up ? '#feelUp' : '#feelDown').catch(() => {});
+    feelLog.push({ i: c.i, up });
+    await sleep(500);
   }
-  R.test10 = await H.page.evaluate(() => { const e = window.__game.exportCasts(); return { score: `${e.test10.good}/${e.test10.attempts}`, rows: e.test10.rows.map((r) => ({ intendedFt: r.intendedFt, distFt: r.distFt, landErrPct: r.landErrPct, intendedAimDeg: r.intendedAimDeg, landAimDeg: r.landAimDeg, aimErrDeg: r.aimErrDeg, good: r.good })) }; });
+  await sleep(500);
+  await H.page.screenshot({ path: SHOTS + 'host-test10-summary.png' });
+  R.test10 = await H.page.evaluate(() => { const e = window.__game.exportCasts(); return { score: `${e.test10.counted}/${e.test10.attempts}`, summaryText: document.querySelector('#testInfo').innerText,
+    rows: e.test10.rows.map((r) => ({ intendedFt: r.intendedFt, distFt: r.distFt, missText: r.missText, missFt: r.missFt, missDeg: r.missDeg, peak_dps: r.peak_dps, tooHard: r.tooHard, relaxed: r.relaxed, good: r.good, counts: r.counts })) }; });
+  R.test10.ruleOk = R.test10.rows[2].tooHard === true && R.test10.rows[2].counts === false && R.test10.rows[4].relaxed === false && R.test10.rows[4].counts === false &&
+    R.test10.rows.every((r) => r.counts === (r.good && !r.tooHard && r.relaxed === true)) && R.test10.rows.every((r) => r.good || /(Long|Short) by \d+ ft|(Left|Right) by \d+°/.test(r.missText));
   fs.writeFileSync(path.join(RES, 'test10-casts.json'), JSON.stringify(await H.page.evaluate(() => window.__game.exportCasts()), null, 2));
   log('test10', R.test10.score);
+}
+
+// ---------------------------------------------------------------- T9 motion axis/sign + rejects + lag proof (fresh hosts)
+async function attemptAndWait(h, pad, opts) {
+  const n0 = await h.evaluate(() => window.__game.attempts.length);
+  await padSwing(pad, opts);
+  await h.waitForFunction((n) => window.__game.attempts.length > n, { timeout: 6000, polling: 50 }, n0).catch(() => {});
+  await sleep(300);
+  return h.evaluate((n) => window.__game.attempts.slice(n), n0);
+}
+if (want('basic') || want('motion')) {
+  log('T9 motion: fresh hosts (empty storage), no button, realistic iPhone traces on X+, X−, Y+');
+  R.motion = {};
+  for (const [axis, sign] of [[0, 1], [0, -1], [1, 1]]) {
+    const key = `${'XYZ'[axis]}${sign > 0 ? '+' : '-'}`;
+    const h = await newHost(QW, { width: 960, height: 540 });
+    const p = await pair(h.page);
+    await sleep(1500);
+    const c1 = await castAndWait(h.page, p.page, { peakW: 400, axis, sign, seed: 31 + axis });
+    await sleep(500);
+    const c2 = await castAndWait(h.page, p.page, { peakW: 300, axis, sign, seed: 41 + axis });
+    await sleep(500);
+    const c3 = await castAndWait(h.page, p.page, { peakW: 500, axis, sign, seed: 51 + axis });
+    const st = await h.page.evaluate(() => ({ lock: window.__game.det.lock, power: window.__game.det.power, stored: localStorage.getItem('bcs.axis'), attempts: window.__game.attempts.map((a) => a.reason) }));
+    const r = { first400: { power: c1.power, distFt: c1.distFt, peak_dps: c1.peak_dps, mode: c1.castMode }, at300: { power: c2.power, distFt: c2.distFt }, at500: { power: c3.power, distFt: c3.distFt }, learned: st.lock, persisted: !!st.stored, autoScale: { wMax: st.power.wMax, from: st.power.scaledFrom }, attempts: st.attempts };
+    if (key === 'X+') {
+      await h.page.screenshot({ path: SHOTS + 'host-gyro-meter.png' });
+      await p.page.screenshot({ path: SHOTS + 'pad-gyro-meter.png' });
+      // rejects: weak flick (no-button), button held too long, button let go during the backswing with no flick
+      const weak = await attemptAndWait(h.page, p.page, { peakW: 100, backW: 120, seed: 61 });
+      await sleep(400);
+      const coachWeak = await p.page.evaluate(() => document.querySelector('#coach').textContent);
+      const held = await attemptAndWait(h.page, p.page, { peakW: 400, button: true, releaseAfterPeakMs: 650, seed: 62 });
+      await sleep(400);
+      const relEarly = await attemptAndWait(h.page, p.page, { peakW: 400, button: true, releaseAfterPeakMs: 'back', noFlick: true, seed: 63 });
+      await sleep(400);
+      const strip = (a) => a.map((x) => ({ reason: x.reason, coach: x.coach, backPeak: x.backPeak, fwdPeak: x.fwdPeak, axisPeaks: x.axisPeaks, mode: x.mode }));
+      r.rejects = { weak: strip(weak), heldTooLong: strip(held), releasedEarly: strip(relEarly), padCoachAfterWeak: coachWeak };
+      const exp = await h.page.evaluate(() => window.__game.exportCasts());
+      r.exportHasAttempts = { n: exp.attempts.length, stats: exp.attemptStats };
+      // lag proof: phone flash + 880 Hz at its own flick detection, Mac corner square + 1760 Hz on the whip frame
+      await h.page.evaluate(() => { const c = document.querySelector('#lagProof'); c.checked = true; c.dispatchEvent(new Event('change')); });
+      await sleep(400);
+      const watch = (sel) => `(() => { window.__flashes = []; const el = document.querySelector('${sel}'); new MutationObserver(() => { if (!el.hidden) window.__flashes.push(performance.timeOrigin + performance.now()); }).observe(el, { attributes: true, attributeFilter: ['hidden'] }); })()`;
+      await p.page.evaluate(watch('#flash')); await h.page.evaluate(watch('#lpSquare'));
+      const lp = await castAndWait(h.page, p.page, { peakW: 420, seed: 64 });
+      await sleep(300);
+      const padFl = await p.page.evaluate(() => window.__flashes), hostFl = await h.page.evaluate(() => window.__flashes);
+      const lag = await h.page.evaluate(() => window.__game.lag.at(-1));
+      r.lagProof = { padFlashes: padFl.length, hostFlashes: hostFl.length, flashGapMs: padFl.length && hostFl.length ? Math.round(hostFl[0] - padFl[0]) : null, measuredLagMs: lag?.lag_ms, link: lag?.link, ice: lag?.ice, cast: lp.distFt,
+        note: 'same box: both clocks share one epoch, so the flash gap ~= flick->whip lag' };
+    }
+    R.motion[key] = r;
+    log('motion', key, JSON.stringify(r));
+    await h.ctx.close(); await p.ctx.close();
+  }
 }
 
 // ---------------------------------------------------------------- B0a: second phone with a used code
@@ -238,7 +323,7 @@ if (want('basic')) {
   await sleep(300);
   await H.page.waitForFunction(() => window.__link.status === 'paired' && performance.timeOrigin + performance.now() - window.__link.lastFrameAt < 200, { timeout: 15000, polling: 20 });
   R.reconnect.killChannel = { framesBackAfterMs: Date.now() - t0, hostLog: await H.page.evaluate((n) => window.__link.reconnects.slice(n), gapBefore) };
-  const okCast = await castAndWait(H.page, P.page, { peakW: 900 });
+  const okCast = await castAndWait(H.page, P.page, { peakW: 420 });
   R.reconnect.killChannel.castAfter = okCast.distFt;
   log('kill', JSON.stringify(R.reconnect.killChannel));
 
@@ -266,7 +351,7 @@ if (want('basic')) {
   R.reconnect.sleep.wakeToControllingMs = Date.now() - tw;
   await sleep(500);
   R.reconnect.sleep.hostLog = await H.page.evaluate(() => window.__link.reconnects.slice(-2));
-  R.reconnect.sleep.castAfter = (await castAndWait(H.page, P.page, { peakW: 900 })).distFt;
+  R.reconnect.sleep.castAfter = (await castAndWait(H.page, P.page, { peakW: 420 })).distFt;
   log('sleep', JSON.stringify(R.reconnect.sleep));
 
   log('T4c pad page reload (iOS forgets motion permission) -> one tap, no rescan');
@@ -278,7 +363,7 @@ if (want('basic')) {
   await padIdleMotion(P.page);
   await H.page.waitForFunction(() => window.__link.status === 'paired' && performance.timeOrigin + performance.now() - window.__link.lastFrameAt < 200, { timeout: 15000, polling: 20 });
   R.reconnect.reload.tapToControllingMs = Date.now() - tr;
-  R.reconnect.reload.castAfter = (await castAndWait(H.page, P.page, { peakW: 900 })).distFt;
+  R.reconnect.reload.castAfter = (await castAndWait(H.page, P.page, { peakW: 420 })).distFt;
   log('reload', JSON.stringify(R.reconnect.reload));
 
   log('T4d camera-scan context with empty storage (pairing only in URL fragment)');
@@ -289,7 +374,7 @@ if (want('basic')) {
   await P.page.tap('#go');
   await padIdleMotion(P.page);
   await H.page.waitForFunction(() => window.__link.status === 'paired' && performance.timeOrigin + performance.now() - window.__link.lastFrameAt < 200, { timeout: 15000, polling: 20 });
-  R.reconnect.cameraContext = { fragmentHasPairing: /[#&]p=/.test(pairedUrl), tapToControllingMs: Date.now() - tcam, castAfter: (await castAndWait(H.page, P.page, { peakW: 900 })).distFt };
+  R.reconnect.cameraContext = { fragmentHasPairing: /[#&]p=/.test(pairedUrl), tapToControllingMs: Date.now() - tcam, castAfter: (await castAndWait(H.page, P.page, { peakW: 420 })).distFt };
   log('cam', JSON.stringify(R.reconnect.cameraContext));
 
   log('T4e host (game) reload keeps pairing');
@@ -328,17 +413,18 @@ if (want('pair')) {
     const qrAt = await h.page.evaluate(() => window.__game.pairingClock.startAt);
     try {
       const p = await pair(h.page);
-      const c = await castAndWait(h.page, p.page, { peakW: 900 });
+      const c = await castAndWait(h.page, p.page, { peakW: 420 });
       const pc = await h.page.evaluate(() => window.__game.pairingClock.ms);
       const path = (await hostState(h.page)).path;
-      R.pairings.push({ ok: true, hostLoadMs: h.loadMs, tapToConnectedMs: p.connectMs, qrToFirstCastMs: pc, path, distFt: c.distFt });
+      const scan = await h.page.evaluate(() => window.__game.pairingClock.log.at(-1)?.scanToCastMs ?? null);
+      R.pairings.push({ ok: true, setupShown: h.setupShown, hostLoadMs: h.loadMs, tapToConnectedMs: p.connectMs, qrToFirstCastMs: pc, scanToFirstCastMs: scan, path, distFt: c.distFt });
       await p.ctx.close();
     } catch (e) { R.pairings.push({ ok: false, error: String(e.message || e) }); }
     await h.ctx.close();
     log('pairing', i + 1, JSON.stringify(R.pairings.at(-1)));
   }
   const ok = R.pairings.filter((p) => p.ok);
-  R.pairingSummary = { success: `${ok.length}/5`, tapToConnectedMedianMs: median(ok.map((p) => p.tapToConnectedMs)), qrToFirstCastMedianMs: median(ok.map((p) => p.qrToFirstCastMs)), max: Math.max(...ok.map((p) => p.qrToFirstCastMs)) };
+  R.pairingSummary = { success: `${ok.length}/5`, tapToConnectedMedianMs: median(ok.map((p) => p.tapToConnectedMs)), qrToFirstCastMedianMs: median(ok.map((p) => p.qrToFirstCastMs)), scanToFirstCastMedianMs: median(ok.map((p) => p.scanToFirstCastMs)), max: Math.max(...ok.map((p) => p.qrToFirstCastMs)) };
 }
 
 // ---------------------------------------------------------------- T5/T6 latency, 50 casts
@@ -350,7 +436,7 @@ async function latencyRun(label, setup, teardown, rewrite) {
   await sleep(1500);
   await h.page.evaluate(() => window.__game.startLat50());
   for (let i = 0; i < 50; i++) {
-    try { await castAndWait(h.page, p.page, { peakW: 700 + (i % 5) * 80, releaseAfterPeakMs: 30 }); } catch { /* lost cast */ }
+    try { await castAndWait(h.page, p.page, { peakW: 320 + (i % 5) * 40, seed: i + 1 }); } catch { /* lost cast */ }
     await sleep(150);
   }
   await sleep(1000);
@@ -360,7 +446,7 @@ async function latencyRun(label, setup, teardown, rewrite) {
   if (label === 'mqtt-local') await h.page.evaluate(() => { document.querySelector('#panel').hidden = false; }), await sleep(600), await h.page.screenshot({ path: SHOTS + 'host-panel-pass-criteria.png' });
   await h.ctx.close(); await p.ctx.close();
   const s = exp.latencyTest.stats;
-  return { casts: exp.latencyTest.rows.length, path: exp.latencyTest.rows[0]?.path, lagMedianMs: s.median, lagP95Ms: s.p95, detectMedianMs: s.detectMedian, detectP95Ms: s.detectP95, hostFps: s.hostFps,
+  return { casts: exp.latencyTest.rows.length, path: exp.latencyTest.rows[0]?.path, linkTags: exp.latencyTest.rows.reduce((m, r) => { m[r.link] = (m[r.link] ?? 0) + 1; return m; }, {}), ice: exp.link?.ice ?? null, lagMedianMs: s.median, lagP95Ms: s.p95, detectMedianMs: s.detectMedian, detectP95Ms: s.detectP95, hostFps: s.hostFps,
     rttHalfMedianMs: exp.pingRttHalf.median, rttHalfP95Ms: exp.pingRttHalf.p95, deliveryAgeMedianMs: exp.deliveryAge.median, deliveryAgeP95Ms: exp.deliveryAge.p95,
     clockOffsetMs: exp.clockSync.at(-1)?.offset, file: `tests/results/latency-${label}.json` };
 }
