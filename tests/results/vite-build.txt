@@ -1,0 +1,32 @@
+# npm run build (Wed Nov 18 20:47:33 EST 2026)
+
+> bass-cast-spike@0.1.0 build
+> npm run build -w pad && npm run build -w app
+
+
+> bass-cast-pad@0.1.0 build
+> vite build
+
+vite v6.4.6 building for production...
+transforming...
+✓ 45 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   1.84 kB │ gzip:   0.91 kB
+dist/assets/index-CAH-gLvz.css    1.91 kB │ gzip:   0.90 kB
+dist/assets/index-CnP-g6ZK.js   445.94 kB │ gzip: 135.50 kB
+✓ built in 1.06s
+
+> bass-cast-app@0.1.0 build
+> vite build
+
+vite v6.4.6 building for production...
+transforming...
+✓ 56 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     3.22 kB │ gzip:   1.38 kB
+dist/assets/index-d4OnFPYQ.css      3.62 kB │ gzip:   1.40 kB
+dist/assets/index-C5qSCzZr.js   1,292.32 kB │ gzip: 376.49 kB
+✓ built in 2.63s
+exit=0
