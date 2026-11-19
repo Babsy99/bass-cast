@@ -17,9 +17,12 @@
   </main>
   <main id="ctl" hidden>
     <div id="permErr" class="err" hidden></div>
-    <button id="bail">HOLD<br/>bail open</button>
+    <div id="coach">Hold the phone upright like a rod handle. Swing back, flick forward.</div>
+    <canvas id="gyro"></canvas>
+    <div id="powWrap"><div id="powBand" hidden></div><div id="powMark" hidden></div><span id="powLbl">power</span></div>
+    <button id="bail">optional: HOLD<br/>let go to release</button>
     <div id="touchPad" hidden>drag ↓ then flick ↑</div>
-    <div id="hint">Hold the button · swing back · flick forward · let go.</div>
+    <div id="hint">Just swing — no button needed. Holding the button is optional.</div>
     <label><input type="checkbox" id="touchToggle" /> Touch-cast fallback</label>
     <div id="rate"></div>
   </main>
@@ -33,6 +36,8 @@
     <p class="sub">Open the Bass Cast game on your computer and scan its QR code with the iPhone camera.</p>
   </main>
   <button id="resume" hidden>Tap to resume</button>
+  <div id="feel" hidden><p>Felt relaxed?</p><div><button id="feelUp">👍</button><button id="feelDown">👎</button></div></div>
+  <div id="flash" hidden></div>
   <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

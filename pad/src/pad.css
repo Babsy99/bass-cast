@@ -18,3 +18,16 @@ button.link { background: none; border: 0; color: #ffd28a; font-size: 15px; text
 #resume { position: fixed; inset: 0; z-index: 10; background: rgba(8,12,10,.92); display: grid; place-items: center; font-size: 30px; font-weight: 800; border: 0; color: #ffb547; width: 100%; }
 label { display: flex; gap: 8px; align-items: center; font-size: 14px; opacity: .9 }
 [hidden] { display: none !important }
+#coach { text-align: center; font-size: 17px; font-weight: 700; min-height: 2.6em; max-width: 92vw; color: #ffe2b0 }
+#coach.bad { color: #ff9b8b }
+#gyro { width: 92vw; height: 96px; border-radius: 12px }
+#powWrap { position: relative; width: 92vw; height: 22px; border-radius: 11px; background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,181,71,.35)); overflow: hidden }
+#powBand { position: absolute; top: 0; bottom: 0; background: rgba(80,220,140,.55); border-left: 2px solid #5f5; border-right: 2px solid #5f5 }
+#powMark { position: absolute; top: -2px; bottom: -2px; width: 4px; margin-left: -2px; background: #fff }
+#powLbl { position: absolute; inset: 0; display: grid; place-items: center; font-size: 12px; font-weight: 700; text-shadow: 0 1px 2px #000 }
+#bail { height: 26vh }
+#feel { position: fixed; inset: auto 0 0 0; z-index: 9; padding: 18px 16px max(18px, env(safe-area-inset-bottom)); background: rgba(8,12,10,.94); text-align: center; border-top: 2px solid #ffb547 }
+#feel p { margin: 0 0 10px; font-size: 20px; font-weight: 800 }
+#feel div { display: flex; gap: 16px; justify-content: center }
+#feel button { font-size: 40px; width: 38vw; padding: 12px 0; border-radius: 18px; border: 0; background: rgba(255,255,255,.14) }
+#flash { position: fixed; inset: 0; z-index: 20; background: #fff; pointer-events: none }

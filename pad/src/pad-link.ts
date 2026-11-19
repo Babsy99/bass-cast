@@ -39,7 +39,7 @@ export class PadLink {
   constructor(public code: string) {}
 
   get storageKey() { return 'bcs.pair.' + this.ids.hostPeerId; }
-  get via() { return this.rtcReady ? (this.rtcPath || 'webrtc') : this.mqttReady ? 'mqtt-relay' : 'none'; }
+  get via() { return this.rtcReady ? (this.rtcPath || 'webrtc') : this.mqttReady ? 'MQTT relay' : 'none'; }
   get live() { return this.rtcReady || this.mqttReady; }
 
   async init(hashPairing: Pairing | null) {
@@ -115,7 +115,7 @@ export class PadLink {
       this.rtcReady = true;
       this.lastHostPing = nowMs();
       this.state = 'live';
-      classifyPath(this.evt?.peerConnection).then((p) => { this.rtcPath = p; this.onState(); });
+      classifyPath(this.evt?.peerConnection).then((c) => { this.rtcPath = c ? (c.path === 'direct' ? 'direct Wi-Fi' : `direct P2P via NAT (${c.pair.local}↔${c.pair.remote})`) : null; this.onState(); });
       this.onLive('webrtc');
       this.onState();
       return;
