@@ -1,0 +1,21 @@
+{
+  "startedAt": "2026-11-19T02:08:12.895Z",
+  "env": {
+    "peerjsBroker": true,
+    "chromePolicy": "{\"WebRtcIPHandlingUrl\":[{\"url\":\"*\",\"handling\":\"disable_non_proxied_udp\"}]}"
+  },
+  "errors": [],
+  "b0aExpired": {
+    "padState": "rejected:expired",
+    "padText": "This QR code expired.",
+    "hostStatus": "waiting",
+    "hostLog": [
+      "2026-11-19T02:08:18.886Z REJECTED join over MQTT: expired"
+    ]
+  },
+  "consoleErrors": {
+    "count": 0,
+    "sample": []
+  },
+  "finishedAt": "2026-11-19T02:08:19.416Z"
+}
