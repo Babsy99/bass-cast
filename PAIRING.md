@@ -11,7 +11,11 @@
    1) WebRTC DataChannels (PeerJS signaling on 0.peerjs.com:443, Google STUN, no TURN)
         "bcsm-…"  motion   unordered, maxRetransmits 0  (stale frames are dropped, never queued)
         "bcse-…"  events   reliable, ordered            (bail, pause/resume, ping/pong, haptic cues)
-      path shown on the host: direct (host↔host candidates on the LAN) or relay-p2p (srflx/prflx)
+      path shown on the host: "direct Wi-Fi" (host↔host candidates on the LAN) or "direct P2P (NAT, via STUN)" (value `p2p-nat`)
+      (srflx/prflx candidates: still a straight phone↔Mac WebRTC link, no server carries the data; it was
+      mislabelled "relay-p2p" before). The exact ICE pair (local/remote candidate type, address kind
+      mdns/private/public, udp/tcp) is logged in the link events and the latency export (`link.ice`, per-row `ice`).
+      Every lag-export row also carries link = direct | relay | local.
    2) MQTT over WSS relay (emqx :8084 → test.mosquitto.org :8081 → eclipse :443)
         if WebRTC isn't up within 3 s, or drops; WebRTC keeps retrying and takes over again when up
       path shown on the host: MQTT relay
@@ -72,7 +76,7 @@ Known limits: anyone who photographs the QR **before** the phone scans it could 
 | **Corporate / guest / hotel Wi-Fi** with client isolation or UDP blocked | no LAN path, maybe no STUN → MQTT relay. If WebSockets to the brokers' ports are blocked too, the eclipse broker on :443 is the last hope | own relay on 443 |
 | **0.peerjs.com down** | no WebRTC signaling → MQTT relay only | Trystero or own signaling |
 | **All public MQTT brokers down or blocked** and WebRTC fails | no connection; the host shows the broker state | own relay |
-| **macOS Local Network permission denied** | the Mac may not expose LAN candidates → relay-p2p or MQTT | re-allow in Privacy & Security → Local Network |
+| **macOS Local Network permission denied** | the Mac may not expose LAN candidates → p2p-nat (still direct) or MQTT | re-allow in Privacy & Security → Local Network |
 | iOS **Low Power Mode** / background | motion events throttled or stopped | pad pauses, Tap to resume |
 | Someone scans the QR first | real phone gets "used" | Panel → New session |
 

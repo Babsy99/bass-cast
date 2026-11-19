@@ -68,34 +68,43 @@ jobs:
           ln -s /Applications out/dmgroot/Applications
           hdiutil create -volname BassCast -srcfolder out/dmgroot -ov -format UDZO out/BassCast-universal.dmg
           codesign --force -s - out/BassCast-universal.dmg
-          ditto -c -k --keepParent "$APP" out/BassCast-universal.app.zip
-          shasum -a 256 out/BassCast-universal.dmg out/BassCast-universal.app.zip | tee out/SHA256SUMS.txt
+          # Recommended download: a zip made with ditto --keepParent (keeps the bundle, symlinks and the
+          # ad-hoc signature intact; Finder's own "Compress" or `zip -r` can break the signature).
+          ditto -c -k --keepParent "$APP" out/BassCast.zip
+          # sanity: unzip with ditto and re-verify the signature survived
+          mkdir -p out/zipcheck && ditto -x -k out/BassCast.zip out/zipcheck
+          codesign --verify --deep --strict --verbose=2 out/zipcheck/BassCast.app
+          rm -rf out/zipcheck
+          shasum -a 256 out/BassCast.zip out/BassCast-universal.dmg | tee out/SHA256SUMS.txt
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: BassCast-universal-${{ github.run_number }}
           path: |
+            out/BassCast.zip
             out/BassCast-universal.dmg
-            out/BassCast-universal.app.zip
             out/SHA256SUMS.txt
           if-no-files-found: error
 
-      - name: Public prerelease v0.1.0-m0
+      - name: Public prerelease v0.1.1-m0.1
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          TAG="v0.1.0-m0"
-          FILES="out/BassCast-universal.dmg out/BassCast-universal.app.zip out/SHA256SUMS.txt"
-          NOTES="Bass Cast spike M0/B0 test build. Universal (Apple silicon + Intel), ad-hoc signed, not notarized.
-          Controller page: https://babsy99.github.io/bass-cast/
-          First launch on macOS 15+: open the app once, then System Settings > Privacy & Security > Open Anyway
-          (or run: xattr -dr com.apple.quarantine /Applications/BassCast.app). Allow the Local Network prompt for direct Wi-Fi play.
+          TAG="v0.1.1-m0.1"
+          FILES="out/BassCast.zip out/BassCast-universal.dmg out/SHA256SUMS.txt"
+          NOTES="Bass Cast spike M0.1 test build (casting fix). Universal (Apple silicon + Intel), ad-hoc signed, not notarized.
+          Recommended download: BassCast.zip. Double-click it, drag BassCast.app to Applications, then paste this in Terminal once:
+            xattr -dr com.apple.quarantine /Applications/BassCast.app && open /Applications/BassCast.app
+          (Without Terminal: open the app once, then System Settings > Privacy & Security > Open Anyway.)
+          The .dmg is the same app. Controller page: https://babsy99.github.io/bass-cast/
+          Allow the Local Network prompt for direct Wi-Fi play.
           Built from ${GITHUB_SHA} by run ${GITHUB_RUN_ID}."
           if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release delete-asset "$TAG" BassCast-universal.app.zip -y 2>/dev/null || true  # renamed to BassCast.zip
             gh release upload "$TAG" $FILES --clobber
             gh release edit "$TAG" --prerelease --draft=false --notes "$NOTES"
           else
-            gh release create "$TAG" $FILES --prerelease --target "$GITHUB_SHA" --title "BassCast spike v0.1.0-m0" --notes "$NOTES"
+            gh release create "$TAG" $FILES --prerelease --target "$GITHUB_SHA" --title "BassCast spike v0.1.1-m0.1 (M0.1 casting fix)" --notes "$NOTES"
           fi

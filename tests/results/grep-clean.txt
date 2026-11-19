@@ -1,5 +1,5 @@
-# grep-clean  2026-11-18 21:39 EST
-# scope: 65 files that git commits (git ls-files; node_modules, dist, target excluded by .gitignore)
+# grep-clean  2026-11-18 23:29 EST
+# scope: 70 files that git commits (git ls-files; node_modules, dist, target excluded by .gitignore)
 
 ## personal: street number (4 digits)
 (no matches)

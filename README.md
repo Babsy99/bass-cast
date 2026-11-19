@@ -17,7 +17,7 @@ bass-cast-spike/
 │                       WebRTC channel patch, sensors, touch-cast
 ├─ tests/               headless puppeteer suite + test-only local MQTT broker
 ├─ shots/               (not committed) screenshots + cast.mp4 from the last test run
-├─ .github/workflows/   mac.yml (universal .app/.dmg, ad-hoc signed, prerelease v0.1.0-m0)
+├─ .github/workflows/   mac.yml (universal .app/.dmg, ad-hoc signed, prerelease v0.1.1-m0.1; v0.1.0-m0 kept)
 ├─ PAIRING.md           transport, pairing, security, failure modes, upgrade path
 └─ ENGINE.md            engine comparison and pick
 ```
@@ -35,21 +35,48 @@ bass-cast-spike/
 No phone pairing? Switch on **touch-cast** in the Panel and drag-flick with the mouse or trackpad. Single-device mode
 (`?solo`, for opening the host page on the phone itself) uses the phone's own sensors and an on-screen bail.
 
-**Modes (toolbar):** Test 10 casts (good = within ±15% of the target distance and inside the aim
-cone, X/10 score, JSON export) · 50-cast latency run (median / p95 JSON export) · Panel (pass criteria,
+**Casting:** hold the phone upright like a rod handle, swing back, flick forward. No button needed (holding
+the on-screen button is optional; letting go then releases). The game learns your swing axis and direction from
+the first swing and scales power so that swing is ~65%; a relaxed 300–500°/s wrist flick covers the whole lake.
+A live gyro meter (Mac bottom-left and on the phone) shows each axis, the thresholds and the swing phase; a
+failed swing says why ("Swing back further", "Flick forward faster", "Let go right after the flick", …).
+
+**Before the QR:** the Mac shows the setup and casting instructions first (reading only) with one **Show QR**
+button; the pairing clock runs from that click to the first cast, and the split from the phone joining to the
+first cast is logged too (`scanToCastMs`).
+
+**Lag proof (Panel):** the phone flashes white and beeps (880 Hz) the moment it detects the flick; the Mac
+flashes a white top-right square and beeps (1760 Hz) on the exact frame the rod whip is first drawn. Film both
+screens with a slow-motion camera and count frames between the two flashes.
+
+**Modes (toolbar):** Test 10 casts (a cast counts only if it lands within ±15% of the target distance and inside the
+aim cone, peaks at ≤500°/s, and you tap 👍 "felt relaxed" on the phone; misses say "Long/Short by N ft",
+"Left/Right by N°"; X/10 score, JSON export) · 50-cast latency run (median / p95 JSON export) · Panel (pass criteria,
 cast log, exports, new session) · Debug overlay · Show QR.
 
-### First launch on macOS 15 (Sequoia) and later — one time only
+### First launch on a Mac — one time only
 
-The build is ad-hoc signed, not notarized, so Gatekeeper blocks the first open:
+Download **BassCast.zip** from the release (recommended; the `.dmg` holds the same app). Double-click the
+zip, drag **BassCast.app** to **Applications**, then paste this one line into Terminal:
 
-1. Drag **BassCast.app** from the DMG to Applications and open it once. macOS says it can't verify it; click **Done**.
-2. Open **System Settings → Privacy & Security**, scroll down, click **Open Anyway** next to BassCast, and confirm.
+```bash
+xattr -dr com.apple.quarantine /Applications/BassCast.app && open /Applications/BassCast.app
+```
 
-   *Or*, in Terminal: `xattr -dr com.apple.quarantine /Applications/BassCast.app`
-3. macOS may then ask **"Allow BassCast to find devices on local networks?"** Click **Allow**. That lets
-   the phone talk to the Mac directly over Wi-Fi. If you click Don't Allow it still works through the
-   relay, just with more lag. You can change this later in Privacy & Security → Local Network.
+That removes the "downloaded from the internet" flag from this one app and opens it: no Gatekeeper dialog,
+now or later. Why it's needed: the build is ad-hoc signed, not notarized. Only an app signed with an Apple
+**Developer ID** and **notarized** by Apple (Apple Developer Program, $99/year) opens from a download without the
+"can't verify" block, and even then macOS shows a one-time "downloaded from the Internet — Open?" confirmation.
+We deliberately don't ship a helper `.command` script for this: a downloaded script gets the same quarantine
+flag and is itself blocked by Gatekeeper, so it would add a prompt instead of removing one.
+
+Without Terminal (macOS 15+; Control-click → Open no longer bypasses Gatekeeper):
+1. Open BassCast.app once. macOS says it can't verify it; click **Done**.
+2. **System Settings → Privacy & Security**, scroll down, click **Open Anyway** next to BassCast, confirm with your password.
+
+Then macOS may ask **"Allow BassCast to find devices on local networks?"** Click **Allow**. That lets
+the phone talk to the Mac directly over Wi-Fi. If you click Don't Allow it still works through the
+relay, just with more lag. You can change this later in Privacy & Security → Local Network.
 
 Both prompts happen once.
 
@@ -92,8 +119,9 @@ Results go to `tests/results/*.json`, screenshots and `cast.mp4` to `shots/`.
 
 `.github/workflows/mac.yml` runs on `macos-latest` on every push to `main` that touches the app (or by hand).
 It restores the app icons from `app/src-tauri/icons-b64/` (stored as base64 text), builds a universal
-(arm64 + x86_64) `.app`, ad-hoc signs it with `codesign --force --deep -s -`, wraps it in a `.dmg`, uploads both as a
-workflow artifact and attaches them to the public **prerelease `v0.1.0-m0`**. It uses no secrets, only the built-in `GITHUB_TOKEN`.
+(arm64 + x86_64) `.app`, ad-hoc signs it with `codesign --force --deep -s -`, zips it as `BassCast.zip` with
+`ditto -c -k --keepParent` (re-verifying the signature after unzip) and wraps it in a `.dmg`, uploads both as a
+workflow artifact and attaches them to the public **prerelease `v0.1.1-m0.1`** (the earlier `v0.1.0-m0` stays as it was). It uses no secrets, only the built-in `GITHUB_TOKEN`.
 The QR points to the repo variable `PAD_URL` if set, otherwise `https://babsy99.github.io/bass-cast/`.
 
 The controller page is served by GitHub Pages from the `gh-pages` branch: the `vite build` output of `pad/`
