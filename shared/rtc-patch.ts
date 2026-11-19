@@ -18,8 +18,14 @@ export function patchUnreliableChannels() {
   };
 }
 
-/** Classify the selected ICE pair: host<->host = direct (LAN), anything else peer-to-peer via STUN. */
-export async function classifyPath(pc: RTCPeerConnection | undefined | null): Promise<'direct' | 'relay-p2p' | null> {
+export interface IcePair { local: string; remote: string; protocol: string; localAddrKind: string; remoteAddrKind: string }
+
+/**
+ * Classify the selected ICE pair. Both sides 'host' = direct LAN link. 'srflx'/'prflx' = still a direct
+ * phone<->Mac WebRTC link (no relay server: we run no TURN), just found via STUN/peer-reflexive addresses,
+ * which is common when iOS hides local IPs behind mDNS. A 'relay' candidate (TURN) cannot occur here.
+ */
+export async function classifyPath(pc: RTCPeerConnection | undefined | null): Promise<{ path: 'direct' | 'p2p-nat'; pair: IcePair } | null> {
   if (!pc) return null;
   try {
     const stats = await pc.getStats();
@@ -31,8 +37,10 @@ export async function classifyPath(pc: RTCPeerConnection | undefined | null): Pr
     if (!pair) return null;
     const l: any = stats.get(pair.localCandidateId);
     const rm: any = stats.get(pair.remoteCandidateId);
-    const lt = l?.candidateType, rt = rm?.candidateType;
-    return lt === 'host' && rt === 'host' ? 'direct' : 'relay-p2p';
+    const kind = (a?: string) => !a ? 'unknown' : a.endsWith('.local') ? 'mdns' : /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.|fe80|fd)/i.test(a) ? 'private' : 'public';
+    const info: IcePair = { local: l?.candidateType ?? '?', remote: rm?.candidateType ?? '?', protocol: l?.protocol ?? '?',
+      localAddrKind: kind(l?.address ?? l?.ip), remoteAddrKind: kind(rm?.address ?? rm?.ip) };
+    return { path: info.local === 'host' && info.remote === 'host' ? 'direct' : 'p2p-nat', pair: info };
   } catch {
     return null;
   }

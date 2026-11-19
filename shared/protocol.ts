@@ -30,7 +30,12 @@ export const RTC_GRACE_MS = 3000;
 /** Unused session codes expire after this long; the host then shows a fresh QR. */
 export const CODE_TTL_MS = 15 * 60 * 1000;
 
-export type Path = 'direct' | 'relay-p2p' | 'mqtt-relay';
+/** direct = WebRTC host<->host on the LAN; p2p-nat = WebRTC phone<->Mac via STUN-found addresses (still no relay server);
+ *  mqtt-relay = traffic through the public MQTT broker. */
+export type Path = 'direct' | 'p2p-nat' | 'mqtt-relay';
+/** For logs/exports: is a server in the data path? */
+export const pathKind = (p: string) => (p === 'mqtt-relay' ? 'relay' : p === 'local' ? 'local' : 'direct');
+export const PATH_LABEL: Record<string, string> = { direct: 'direct Wi-Fi', 'p2p-nat': 'direct P2P (NAT, via STUN)', 'mqtt-relay': 'MQTT relay', local: 'local' };
 
 /**
  * Motion frame (pad -> host), sent ~60 Hz on the unreliable channel as a compact JSON array:
@@ -80,7 +85,16 @@ export type Msg =
   | { t: 'resume'; tp: number; reconnectMs: number; via: string }
   | { t: 'hap'; p: 'tick' | 'thunk' | 'buzz' | 'double' }
   | { t: 'mode'; touch: boolean }
-  | { t: 'mframe'; f: string }; // a motion frame carried inside the MQTT relay
+  | { t: 'mframe'; f: string } // a motion frame carried inside the MQTT relay
+  // host -> pad: detector config (so the pad's live gyro meter and lag-proof flash match the host)
+  | { t: 'cfg'; axis: 0 | 1 | 2; sign: 1 | -1; learned: boolean; back: number; fwd: number; wMin: number; wMax: number; lagProof: boolean }
+  // host -> pad: result / coaching line after every attempt
+  | { t: 'coach'; ok: boolean; text: string; power?: number; distFt?: number; peak?: number }
+  // host -> pad: Test 10 target band, as distances and as the power range that reaches them
+  | { t: 'target'; ft: number; lo?: number; hi?: number; pLo?: number; pHi?: number } // ft 0 = no target
+  // host -> pad: ask "Felt relaxed?" for cast id; pad -> host: the answer
+  | { t: 'ask'; id: number }
+  | { t: 'feel'; id: number; ok: boolean };
 
 /** Epoch-ms clock with sub-ms resolution, same definition on host and pad. */
 export const nowMs = () => performance.timeOrigin + performance.now();
