@@ -28,6 +28,7 @@ export class HostLink {
   status: LinkStatus = 'starting';
   path: Path | null = null;
   rtcPath: Path | null = null;
+  icePair: import('../../shared/rtc-patch').IcePair | null = null;
   clock = new ClockSync();
   rttHalf = NaN;
   deliveryAge = NaN;
@@ -191,7 +192,7 @@ export class HostLink {
         p.evt?.send({ t: 'ok', first: r.first } satisfies Msg);
         this.log(`pad ${r.first ? 'paired' : 'rejoined'} over WebRTC`);
         this.afterAuth(r.first);
-        classifyPath(p.evt?.peerConnection).then((path) => { p.path = path || 'relay-p2p'; this.rtcPath = p.path; this.log(`WebRTC path: ${p.path}`); this.onChange(); });
+        classifyPath(p.evt?.peerConnection).then((c) => { p.path = c?.path || 'p2p-nat'; this.rtcPath = p.path; this.icePair = c?.pair ?? null; this.log(`WebRTC path: ${p.path}` + (c ? ` (local ${c.pair.local}/${c.pair.localAddrKind}, remote ${c.pair.remote}/${c.pair.remoteAddrKind}, ${c.pair.protocol})` : '')); this.onChange(); });
       } else {
         p.evt?.send({ t: 'reject', why: r.why } satisfies Msg);
         this.log(`REJECTED join over WebRTC: ${r.why}`);

@@ -296,8 +296,11 @@ export class LakeScene {
     f.position.y = 0.15;
     const top = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.4, 10), new THREE.MeshStandardNodeMaterial({ color: new THREE.Color(1, 1, 1) }));
     top.position.y = 0.6;
-    const ringM = new THREE.MeshBasicNodeMaterial({ color: new THREE.Color(1, 0.8, 0.3), transparent: true, opacity: 0.55, depthWrite: false });
-    const ring = new THREE.Mesh(new THREE.RingGeometry(1, 1.15, 40), ringM);
+    // Target band: everything inside this ring counts as the right distance (±tolerance).
+    const ringM = new THREE.MeshBasicNodeMaterial({ color: new THREE.Color(1, 0.85, 0.3), transparent: true, opacity: 0.85, depthWrite: false });
+    const ring = new THREE.Mesh(new THREE.RingGeometry(0.93, 1.0, 64), ringM);
+    const fillM = new THREE.MeshBasicNodeMaterial({ color: new THREE.Color(1, 0.85, 0.3), transparent: true, opacity: 0.12, depthWrite: false });
+    ring.add(new THREE.Mesh(new THREE.CircleGeometry(0.93, 64), fillM));
     ring.rotation.x = -Math.PI / 2; ring.position.y = 0.03; ring.name = 'zone';
     this.target.add(f, top, ring);
     this.target.visible = false;

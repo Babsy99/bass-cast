@@ -64,9 +64,18 @@ async function boot() {
       game.renderQr();
       (window as any).__padUrl = url;
     };
-    showQr();
     const origNew = link.newSession.bind(link);
     link.newSession = async () => { await origNew(); showQr(); };
+    // Setup + first-run instructions come BEFORE the QR (reading time is not pairing time). The pairing
+    // clock and the code's TTL start when "Show QR" is pressed. A reload of an already-paired session skips it.
+    // Also skipped after an in-tab reload (e.g. the WebGPU->WebGL2 fallback reload) once it was read.
+    const already = !!link.pad || link.codeUsed || sessionStorage.getItem('bcs.setupDone') === '1' || new URLSearchParams(location.search).has('noSetup');
+    const go = () => { sessionStorage.setItem('bcs.setupDone', '1'); $('#setup').hidden = true; $('#qrCard').hidden = false; showQr(); };
+    if (already) go();
+    else {
+      $('#setup').hidden = false;
+      $('#btnShowQrNow').onclick = () => { game.sfx.unlock(); go(); };
+    }
     game.renderStatus();
     game.renderPass();
   } else {
