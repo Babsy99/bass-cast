@@ -1,0 +1,6364 @@
+{
+  "app": "Bass Cast spike",
+  "kind": "latency-log",
+  "exportedAt": "2026-11-19T01:51:50.769Z",
+  "method": {
+    "clock": "NTP-style: host sends ping(h0); pad replies with its clock p1; host receives at h3. offset=p1-(h0+h3)/2. Burst of 10 samples at connect and every 10 s; keep the 5 lowest-RTT samples; offset = median of those.",
+    "lag": "lag_ms = t_cast_start_host - t_flick_host. t_flick_phone is the phone timestamp of peak forward pitch angular velocity; t_flick_host = t_flick_phone - offset. t_detect_host = when the host detector confirmed the peak (transport + detection, before rendering). t_cast_start_host is the host requestAnimationFrame timestamp of the first rendered frame showing the rod whip. release_lag_ms = first frame with the lure in flight minus bail release (phone time -> host time).",
+    "clocks": "performance.timeOrigin + performance.now() on both devices (epoch ms)."
+  },
+  "pass": {
+    "pairingS": 10,
+    "reconnectS": 5,
+    "lagMedianMs": 100,
+    "lagP95Ms": 150,
+    "goodCasts": 8,
+    "landTolPct": 15,
+    "aimConeDeg": 6
+  },
+  "latencyTest": {
+    "rows": [
+      {
+        "i": 1,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:21.449Z",
+        "t_flick_host": "2026-11-19T01:49:21.449Z",
+        "t_detect_host": "2026-11-19T01:49:21.499Z",
+        "detect_lag_ms": 49.6,
+        "t_cast_start_host": "2026-11-19T01:49:21.499Z",
+        "lag_ms": 49.9,
+        "t_release_host": "2026-11-19T01:49:21.481Z",
+        "t_launch_host": "2026-11-19T01:49:21.499Z",
+        "release_lag_ms": 17.6,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.300048828125
+      },
+      {
+        "i": 2,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:24.220Z",
+        "t_flick_host": "2026-11-19T01:49:24.220Z",
+        "t_detect_host": "2026-11-19T01:49:24.270Z",
+        "detect_lag_ms": 50.6,
+        "t_cast_start_host": "2026-11-19T01:49:24.282Z",
+        "lag_ms": 62.1,
+        "t_release_host": "2026-11-19T01:49:24.252Z",
+        "t_launch_host": "2026-11-19T01:49:24.282Z",
+        "release_lag_ms": 29.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 3,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:27.061Z",
+        "t_flick_host": "2026-11-19T01:49:27.061Z",
+        "t_detect_host": "2026-11-19T01:49:27.111Z",
+        "detect_lag_ms": 50.2,
+        "t_cast_start_host": "2026-11-19T01:49:27.115Z",
+        "lag_ms": 54.6,
+        "t_release_host": "2026-11-19T01:49:27.093Z",
+        "t_launch_host": "2026-11-19T01:49:27.115Z",
+        "release_lag_ms": 22.3,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 4,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:30.051Z",
+        "t_flick_host": "2026-11-19T01:49:30.050Z",
+        "t_detect_host": "2026-11-19T01:49:30.100Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:49:30.098Z",
+        "lag_ms": 48.1,
+        "t_release_host": "2026-11-19T01:49:30.083Z",
+        "t_launch_host": "2026-11-19T01:49:30.098Z",
+        "release_lag_ms": 15.8,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 5,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:33.146Z",
+        "t_flick_host": "2026-11-19T01:49:33.145Z",
+        "t_detect_host": "2026-11-19T01:49:33.195Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:49:33.198Z",
+        "lag_ms": 52.9,
+        "t_release_host": "2026-11-19T01:49:33.178Z",
+        "t_launch_host": "2026-11-19T01:49:33.198Z",
+        "release_lag_ms": 20.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 6,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:36.339Z",
+        "t_flick_host": "2026-11-19T01:49:36.338Z",
+        "t_detect_host": "2026-11-19T01:49:36.389Z",
+        "detect_lag_ms": 50.7,
+        "t_cast_start_host": "2026-11-19T01:49:36.382Z",
+        "lag_ms": 43.1,
+        "t_release_host": "2026-11-19T01:49:36.372Z",
+        "t_launch_host": "2026-11-19T01:49:36.382Z",
+        "release_lag_ms": 9.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 7,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:39.085Z",
+        "t_flick_host": "2026-11-19T01:49:39.084Z",
+        "t_detect_host": "2026-11-19T01:49:39.134Z",
+        "detect_lag_ms": 49.6,
+        "t_cast_start_host": "2026-11-19T01:49:39.131Z",
+        "lag_ms": 46.9,
+        "t_release_host": "2026-11-19T01:49:39.117Z",
+        "t_launch_host": "2026-11-19T01:49:39.131Z",
+        "release_lag_ms": 14.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 8,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:41.936Z",
+        "t_flick_host": "2026-11-19T01:49:41.936Z",
+        "t_detect_host": "2026-11-19T01:49:41.986Z",
+        "detect_lag_ms": 50.5,
+        "t_cast_start_host": "2026-11-19T01:49:41.998Z",
+        "lag_ms": 62.2,
+        "t_release_host": "2026-11-19T01:49:41.968Z",
+        "t_launch_host": "2026-11-19T01:49:41.998Z",
+        "release_lag_ms": 29.7,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 9,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:44.923Z",
+        "t_flick_host": "2026-11-19T01:49:44.922Z",
+        "t_detect_host": "2026-11-19T01:49:44.973Z",
+        "detect_lag_ms": 50.9,
+        "t_cast_start_host": "2026-11-19T01:49:44.981Z",
+        "lag_ms": 58.8,
+        "t_release_host": "2026-11-19T01:49:44.955Z",
+        "t_launch_host": "2026-11-19T01:49:44.981Z",
+        "release_lag_ms": 26.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 10,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:48.012Z",
+        "t_flick_host": "2026-11-19T01:49:48.012Z",
+        "t_detect_host": "2026-11-19T01:49:48.062Z",
+        "detect_lag_ms": 50.7,
+        "t_cast_start_host": "2026-11-19T01:49:48.064Z",
+        "lag_ms": 52.8,
+        "t_release_host": "2026-11-19T01:49:48.044Z",
+        "t_launch_host": "2026-11-19T01:49:48.064Z",
+        "release_lag_ms": 20.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 11,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:51.201Z",
+        "t_flick_host": "2026-11-19T01:49:51.200Z",
+        "t_detect_host": "2026-11-19T01:49:51.251Z",
+        "detect_lag_ms": 50.2,
+        "t_cast_start_host": "2026-11-19T01:49:51.248Z",
+        "lag_ms": 47.1,
+        "t_release_host": "2026-11-19T01:49:51.233Z",
+        "t_launch_host": "2026-11-19T01:49:51.248Z",
+        "release_lag_ms": 14.1,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 12,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:53.942Z",
+        "t_flick_host": "2026-11-19T01:49:53.942Z",
+        "t_detect_host": "2026-11-19T01:49:53.991Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:49:53.998Z",
+        "lag_ms": 55.8,
+        "t_release_host": "2026-11-19T01:49:53.974Z",
+        "t_launch_host": "2026-11-19T01:49:53.998Z",
+        "release_lag_ms": 23.6,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 13,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:56.784Z",
+        "t_flick_host": "2026-11-19T01:49:56.784Z",
+        "t_detect_host": "2026-11-19T01:49:56.833Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:49:56.847Z",
+        "lag_ms": 63.7,
+        "t_release_host": "2026-11-19T01:49:56.816Z",
+        "t_launch_host": "2026-11-19T01:49:56.847Z",
+        "release_lag_ms": 31.4,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 14,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:59.784Z",
+        "t_flick_host": "2026-11-19T01:49:59.784Z",
+        "t_detect_host": "2026-11-19T01:49:59.833Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:49:59.831Z",
+        "lag_ms": 46.4,
+        "t_release_host": "2026-11-19T01:49:59.816Z",
+        "t_launch_host": "2026-11-19T01:49:59.831Z",
+        "release_lag_ms": 14.1,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 15,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:02.873Z",
+        "t_flick_host": "2026-11-19T01:50:02.873Z",
+        "t_detect_host": "2026-11-19T01:50:02.924Z",
+        "detect_lag_ms": 50.9,
+        "t_cast_start_host": "2026-11-19T01:50:02.914Z",
+        "lag_ms": 40.6,
+        "t_release_host": "2026-11-19T01:50:02.907Z",
+        "t_launch_host": "2026-11-19T01:50:02.914Z",
+        "release_lag_ms": 6.9,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 16,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:06.121Z",
+        "t_flick_host": "2026-11-19T01:50:06.120Z",
+        "t_detect_host": "2026-11-19T01:50:06.170Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:06.180Z",
+        "lag_ms": 59.9,
+        "t_release_host": "2026-11-19T01:50:06.153Z",
+        "t_launch_host": "2026-11-19T01:50:06.180Z",
+        "release_lag_ms": 27.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 17,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:08.859Z",
+        "t_flick_host": "2026-11-19T01:50:08.859Z",
+        "t_detect_host": "2026-11-19T01:50:08.909Z",
+        "detect_lag_ms": 49.7,
+        "t_cast_start_host": "2026-11-19T01:50:08.914Z",
+        "lag_ms": 54.4,
+        "t_release_host": "2026-11-19T01:50:08.892Z",
+        "t_launch_host": "2026-11-19T01:50:08.914Z",
+        "release_lag_ms": 21.9,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 18,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:11.708Z",
+        "t_flick_host": "2026-11-19T01:50:11.708Z",
+        "t_detect_host": "2026-11-19T01:50:11.757Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:11.763Z",
+        "lag_ms": 55.8,
+        "t_release_host": "2026-11-19T01:50:11.740Z",
+        "t_launch_host": "2026-11-19T01:50:11.763Z",
+        "release_lag_ms": 23.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 19,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:14.696Z",
+        "t_flick_host": "2026-11-19T01:50:14.696Z",
+        "t_detect_host": "2026-11-19T01:50:14.746Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:14.747Z",
+        "lag_ms": 50.5,
+        "t_release_host": "2026-11-19T01:50:14.729Z",
+        "t_launch_host": "2026-11-19T01:50:14.747Z",
+        "release_lag_ms": 18.1,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 0.900146484375
+      },
+      {
+        "i": 20,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:17.789Z",
+        "t_flick_host": "2026-11-19T01:50:17.789Z",
+        "t_detect_host": "2026-11-19T01:50:17.839Z",
+        "detect_lag_ms": 49.8,
+        "t_cast_start_host": "2026-11-19T01:50:17.830Z",
+        "lag_ms": 41,
+        "t_release_host": "2026-11-19T01:50:17.822Z",
+        "t_launch_host": "2026-11-19T01:50:17.830Z",
+        "release_lag_ms": 8.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 0.900146484375
+      },
+      {
+        "i": 21,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:21.030Z",
+        "t_flick_host": "2026-11-19T01:50:21.030Z",
+        "t_detect_host": "2026-11-19T01:50:21.080Z",
+        "detect_lag_ms": 50.1,
+        "t_cast_start_host": "2026-11-19T01:50:21.080Z",
+        "lag_ms": 50,
+        "t_release_host": "2026-11-19T01:50:21.062Z",
+        "t_launch_host": "2026-11-19T01:50:21.080Z",
+        "release_lag_ms": 17.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 0.900146484375
+      },
+      {
+        "i": 22,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:23.772Z",
+        "t_flick_host": "2026-11-19T01:50:23.772Z",
+        "t_detect_host": "2026-11-19T01:50:23.821Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:23.830Z",
+        "lag_ms": 58.1,
+        "t_release_host": "2026-11-19T01:50:23.804Z",
+        "t_launch_host": "2026-11-19T01:50:23.830Z",
+        "release_lag_ms": 25.8,
+        "clock_offset_ms": 0.1,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 23,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:26.610Z",
+        "t_flick_host": "2026-11-19T01:50:26.609Z",
+        "t_detect_host": "2026-11-19T01:50:26.659Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:26.680Z",
+        "lag_ms": 70.1,
+        "t_release_host": "2026-11-19T01:50:26.642Z",
+        "t_launch_host": "2026-11-19T01:50:26.680Z",
+        "release_lag_ms": 37.8,
+        "clock_offset_ms": 0.1,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 24,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:29.600Z",
+        "t_flick_host": "2026-11-19T01:50:29.599Z",
+        "t_detect_host": "2026-11-19T01:50:29.649Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:50:29.646Z",
+        "lag_ms": 46.6,
+        "t_release_host": "2026-11-19T01:50:29.632Z",
+        "t_launch_host": "2026-11-19T01:50:29.646Z",
+        "release_lag_ms": 14.3,
+        "clock_offset_ms": 0.1,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 25,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:32.685Z",
+        "t_flick_host": "2026-11-19T01:50:32.685Z",
+        "t_detect_host": "2026-11-19T01:50:32.735Z",
+        "detect_lag_ms": 50.1,
+        "t_cast_start_host": "2026-11-19T01:50:32.729Z",
+        "lag_ms": 44.5,
+        "t_release_host": "2026-11-19T01:50:32.717Z",
+        "t_launch_host": "2026-11-19T01:50:32.729Z",
+        "release_lag_ms": 12.3,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 26,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:35.872Z",
+        "t_flick_host": "2026-11-19T01:50:35.872Z",
+        "t_detect_host": "2026-11-19T01:50:35.922Z",
+        "detect_lag_ms": 49.7,
+        "t_cast_start_host": "2026-11-19T01:50:35.913Z",
+        "lag_ms": 40.6,
+        "t_release_host": "2026-11-19T01:50:35.904Z",
+        "t_launch_host": "2026-11-19T01:50:35.913Z",
+        "release_lag_ms": 8.3,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 27,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:38.662Z",
+        "t_flick_host": "2026-11-19T01:50:38.662Z",
+        "t_detect_host": "2026-11-19T01:50:38.712Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:38.712Z",
+        "lag_ms": 50.1,
+        "t_release_host": "2026-11-19T01:50:38.695Z",
+        "t_launch_host": "2026-11-19T01:50:38.712Z",
+        "release_lag_ms": 17.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 28,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:41.498Z",
+        "t_flick_host": "2026-11-19T01:50:41.498Z",
+        "t_detect_host": "2026-11-19T01:50:41.548Z",
+        "detect_lag_ms": 50,
+        "t_cast_start_host": "2026-11-19T01:50:41.562Z",
+        "lag_ms": 64.1,
+        "t_release_host": "2026-11-19T01:50:41.530Z",
+        "t_launch_host": "2026-11-19T01:50:41.562Z",
+        "release_lag_ms": 31.9,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 29,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:44.487Z",
+        "t_flick_host": "2026-11-19T01:50:44.486Z",
+        "t_detect_host": "2026-11-19T01:50:44.536Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:44.529Z",
+        "lag_ms": 42.3,
+        "t_release_host": "2026-11-19T01:50:44.519Z",
+        "t_launch_host": "2026-11-19T01:50:44.529Z",
+        "release_lag_ms": 10,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 30,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:47.573Z",
+        "t_flick_host": "2026-11-19T01:50:47.573Z",
+        "t_detect_host": "2026-11-19T01:50:47.623Z",
+        "detect_lag_ms": 50.5,
+        "t_cast_start_host": "2026-11-19T01:50:47.629Z",
+        "lag_ms": 56,
+        "t_release_host": "2026-11-19T01:50:47.605Z",
+        "t_launch_host": "2026-11-19T01:50:47.629Z",
+        "release_lag_ms": 23.7,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 31,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:50.816Z",
+        "t_flick_host": "2026-11-19T01:50:50.816Z",
+        "t_detect_host": "2026-11-19T01:50:50.865Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:50:50.862Z",
+        "lag_ms": 45.9,
+        "t_release_host": "2026-11-19T01:50:50.848Z",
+        "t_launch_host": "2026-11-19T01:50:50.862Z",
+        "release_lag_ms": 13.7,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 32,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:53.557Z",
+        "t_flick_host": "2026-11-19T01:50:53.557Z",
+        "t_detect_host": "2026-11-19T01:50:53.607Z",
+        "detect_lag_ms": 49.9,
+        "t_cast_start_host": "2026-11-19T01:50:53.612Z",
+        "lag_ms": 54.8,
+        "t_release_host": "2026-11-19T01:50:53.589Z",
+        "t_launch_host": "2026-11-19T01:50:53.612Z",
+        "release_lag_ms": 22.5,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 33,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:56.394Z",
+        "t_flick_host": "2026-11-19T01:50:56.394Z",
+        "t_detect_host": "2026-11-19T01:50:56.443Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:56.445Z",
+        "lag_ms": 51.4,
+        "t_release_host": "2026-11-19T01:50:56.426Z",
+        "t_launch_host": "2026-11-19T01:50:56.445Z",
+        "release_lag_ms": 19.1,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 34,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:59.379Z",
+        "t_flick_host": "2026-11-19T01:50:59.379Z",
+        "t_detect_host": "2026-11-19T01:50:59.432Z",
+        "detect_lag_ms": 52.5,
+        "t_cast_start_host": "2026-11-19T01:50:59.428Z",
+        "lag_ms": 49.2,
+        "t_release_host": "2026-11-19T01:50:59.414Z",
+        "t_launch_host": "2026-11-19T01:50:59.428Z",
+        "release_lag_ms": 14.4,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 35,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:02.473Z",
+        "t_flick_host": "2026-11-19T01:51:02.473Z",
+        "t_detect_host": "2026-11-19T01:51:02.523Z",
+        "detect_lag_ms": 49.8,
+        "t_cast_start_host": "2026-11-19T01:51:02.528Z",
+        "lag_ms": 54.8,
+        "t_release_host": "2026-11-19T01:51:02.506Z",
+        "t_launch_host": "2026-11-19T01:51:02.528Z",
+        "release_lag_ms": 22.5,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 36,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:05.665Z",
+        "t_flick_host": "2026-11-19T01:51:05.665Z",
+        "t_detect_host": "2026-11-19T01:51:05.714Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:05.728Z",
+        "lag_ms": 62.9,
+        "t_release_host": "2026-11-19T01:51:05.697Z",
+        "t_launch_host": "2026-11-19T01:51:05.728Z",
+        "release_lag_ms": 30.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.099853515625
+      },
+      {
+        "i": 37,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:08.402Z",
+        "t_flick_host": "2026-11-19T01:51:08.402Z",
+        "t_detect_host": "2026-11-19T01:51:08.453Z",
+        "detect_lag_ms": 50.6,
+        "t_cast_start_host": "2026-11-19T01:51:08.461Z",
+        "lag_ms": 59.3,
+        "t_release_host": "2026-11-19T01:51:08.435Z",
+        "t_launch_host": "2026-11-19T01:51:08.461Z",
+        "release_lag_ms": 25.8,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.099853515625
+      },
+      {
+        "i": 38,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:11.291Z",
+        "t_flick_host": "2026-11-19T01:51:11.291Z",
+        "t_detect_host": "2026-11-19T01:51:11.342Z",
+        "detect_lag_ms": 50.9,
+        "t_cast_start_host": "2026-11-19T01:51:11.361Z",
+        "lag_ms": 70.4,
+        "t_release_host": "2026-11-19T01:51:11.325Z",
+        "t_launch_host": "2026-11-19T01:51:11.361Z",
+        "release_lag_ms": 36.4,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.099853515625
+      },
+      {
+        "i": 39,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:14.281Z",
+        "t_flick_host": "2026-11-19T01:51:14.281Z",
+        "t_detect_host": "2026-11-19T01:51:14.330Z",
+        "detect_lag_ms": 49,
+        "t_cast_start_host": "2026-11-19T01:51:14.328Z",
+        "lag_ms": 46.6,
+        "t_release_host": "2026-11-19T01:51:14.313Z",
+        "t_launch_host": "2026-11-19T01:51:14.328Z",
+        "release_lag_ms": 14.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 40,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:17.370Z",
+        "t_flick_host": "2026-11-19T01:51:17.370Z",
+        "t_detect_host": "2026-11-19T01:51:17.419Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:51:17.427Z",
+        "lag_ms": 57.8,
+        "t_release_host": "2026-11-19T01:51:17.402Z",
+        "t_launch_host": "2026-11-19T01:51:17.427Z",
+        "release_lag_ms": 25.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 41,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:20.560Z",
+        "t_flick_host": "2026-11-19T01:51:20.560Z",
+        "t_detect_host": "2026-11-19T01:51:20.611Z",
+        "detect_lag_ms": 50.7,
+        "t_cast_start_host": "2026-11-19T01:51:20.611Z",
+        "lag_ms": 50.6,
+        "t_release_host": "2026-11-19T01:51:20.594Z",
+        "t_launch_host": "2026-11-19T01:51:20.611Z",
+        "release_lag_ms": 16.9,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 42,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:23.296Z",
+        "t_flick_host": "2026-11-19T01:51:23.296Z",
+        "t_detect_host": "2026-11-19T01:51:23.345Z",
+        "detect_lag_ms": 49.1,
+        "t_cast_start_host": "2026-11-19T01:51:23.344Z",
+        "lag_ms": 47.8,
+        "t_release_host": "2026-11-19T01:51:23.328Z",
+        "t_launch_host": "2026-11-19T01:51:23.344Z",
+        "release_lag_ms": 15.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 43,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:26.186Z",
+        "t_flick_host": "2026-11-19T01:51:26.186Z",
+        "t_detect_host": "2026-11-19T01:51:26.235Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:26.244Z",
+        "lag_ms": 58,
+        "t_release_host": "2026-11-19T01:51:26.218Z",
+        "t_launch_host": "2026-11-19T01:51:26.244Z",
+        "release_lag_ms": 25.8,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 44,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:29.173Z",
+        "t_flick_host": "2026-11-19T01:51:29.173Z",
+        "t_detect_host": "2026-11-19T01:51:29.223Z",
+        "detect_lag_ms": 49.9,
+        "t_cast_start_host": "2026-11-19T01:51:29.227Z",
+        "lag_ms": 54,
+        "t_release_host": "2026-11-19T01:51:29.205Z",
+        "t_launch_host": "2026-11-19T01:51:29.227Z",
+        "release_lag_ms": 21.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 45,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:32.261Z",
+        "t_flick_host": "2026-11-19T01:51:32.261Z",
+        "t_detect_host": "2026-11-19T01:51:32.312Z",
+        "detect_lag_ms": 51.4,
+        "t_cast_start_host": "2026-11-19T01:51:32.327Z",
+        "lag_ms": 65.9,
+        "t_release_host": "2026-11-19T01:51:32.293Z",
+        "t_launch_host": "2026-11-19T01:51:32.327Z",
+        "release_lag_ms": 33.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 46,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:35.450Z",
+        "t_flick_host": "2026-11-19T01:51:35.450Z",
+        "t_detect_host": "2026-11-19T01:51:35.499Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:35.493Z",
+        "lag_ms": 43.6,
+        "t_release_host": "2026-11-19T01:51:35.482Z",
+        "t_launch_host": "2026-11-19T01:51:35.493Z",
+        "release_lag_ms": 11.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 47,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:38.185Z",
+        "t_flick_host": "2026-11-19T01:51:38.185Z",
+        "t_detect_host": "2026-11-19T01:51:38.234Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:38.243Z",
+        "lag_ms": 58.7,
+        "t_release_host": "2026-11-19T01:51:38.217Z",
+        "t_launch_host": "2026-11-19T01:51:38.243Z",
+        "release_lag_ms": 26.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 48,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:41.025Z",
+        "t_flick_host": "2026-11-19T01:51:41.025Z",
+        "t_detect_host": "2026-11-19T01:51:41.074Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:51:41.093Z",
+        "lag_ms": 68.7,
+        "t_release_host": "2026-11-19T01:51:41.057Z",
+        "t_launch_host": "2026-11-19T01:51:41.093Z",
+        "release_lag_ms": 36.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 49,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:43.970Z",
+        "t_flick_host": "2026-11-19T01:51:43.970Z",
+        "t_detect_host": "2026-11-19T01:51:44.019Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:51:44.043Z",
+        "lag_ms": 73.5,
+        "t_release_host": "2026-11-19T01:51:44.002Z",
+        "t_launch_host": "2026-11-19T01:51:44.043Z",
+        "release_lag_ms": 40.9,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 0.800048828125
+      },
+      {
+        "i": 50,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:47.050Z",
+        "t_flick_host": "2026-11-19T01:51:47.050Z",
+        "t_detect_host": "2026-11-19T01:51:47.099Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:51:47.110Z",
+        "lag_ms": 60,
+        "t_release_host": "2026-11-19T01:51:47.082Z",
+        "t_launch_host": "2026-11-19T01:51:47.110Z",
+        "release_lag_ms": 27.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 0.800048828125
+      }
+    ],
+    "path": "mqtt-relay",
+    "startedAt": "2026-11-19T01:49:20.928Z",
+    "stats": {
+      "n": 50,
+      "median": 54.2,
+      "p95": 70.1,
+      "detectMedian": 49.6,
+      "detectP95": 50.9,
+      "releaseMedian": 21.8,
+      "releaseP95": 36.4,
+      "hostFps": 29
+    }
+  },
+  "allCasts": {
+    "rows": [
+      {
+        "i": 1,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:21.449Z",
+        "t_flick_host": "2026-11-19T01:49:21.449Z",
+        "t_detect_host": "2026-11-19T01:49:21.499Z",
+        "detect_lag_ms": 49.6,
+        "t_cast_start_host": "2026-11-19T01:49:21.499Z",
+        "lag_ms": 49.9,
+        "t_release_host": "2026-11-19T01:49:21.481Z",
+        "t_launch_host": "2026-11-19T01:49:21.499Z",
+        "release_lag_ms": 17.6,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.300048828125
+      },
+      {
+        "i": 2,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:24.220Z",
+        "t_flick_host": "2026-11-19T01:49:24.220Z",
+        "t_detect_host": "2026-11-19T01:49:24.270Z",
+        "detect_lag_ms": 50.6,
+        "t_cast_start_host": "2026-11-19T01:49:24.282Z",
+        "lag_ms": 62.1,
+        "t_release_host": "2026-11-19T01:49:24.252Z",
+        "t_launch_host": "2026-11-19T01:49:24.282Z",
+        "release_lag_ms": 29.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 3,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:27.061Z",
+        "t_flick_host": "2026-11-19T01:49:27.061Z",
+        "t_detect_host": "2026-11-19T01:49:27.111Z",
+        "detect_lag_ms": 50.2,
+        "t_cast_start_host": "2026-11-19T01:49:27.115Z",
+        "lag_ms": 54.6,
+        "t_release_host": "2026-11-19T01:49:27.093Z",
+        "t_launch_host": "2026-11-19T01:49:27.115Z",
+        "release_lag_ms": 22.3,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 4,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:30.051Z",
+        "t_flick_host": "2026-11-19T01:49:30.050Z",
+        "t_detect_host": "2026-11-19T01:49:30.100Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:49:30.098Z",
+        "lag_ms": 48.1,
+        "t_release_host": "2026-11-19T01:49:30.083Z",
+        "t_launch_host": "2026-11-19T01:49:30.098Z",
+        "release_lag_ms": 15.8,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 5,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:33.146Z",
+        "t_flick_host": "2026-11-19T01:49:33.145Z",
+        "t_detect_host": "2026-11-19T01:49:33.195Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:49:33.198Z",
+        "lag_ms": 52.9,
+        "t_release_host": "2026-11-19T01:49:33.178Z",
+        "t_launch_host": "2026-11-19T01:49:33.198Z",
+        "release_lag_ms": 20.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 6,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:36.339Z",
+        "t_flick_host": "2026-11-19T01:49:36.338Z",
+        "t_detect_host": "2026-11-19T01:49:36.389Z",
+        "detect_lag_ms": 50.7,
+        "t_cast_start_host": "2026-11-19T01:49:36.382Z",
+        "lag_ms": 43.1,
+        "t_release_host": "2026-11-19T01:49:36.372Z",
+        "t_launch_host": "2026-11-19T01:49:36.382Z",
+        "release_lag_ms": 9.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 7,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:39.085Z",
+        "t_flick_host": "2026-11-19T01:49:39.084Z",
+        "t_detect_host": "2026-11-19T01:49:39.134Z",
+        "detect_lag_ms": 49.6,
+        "t_cast_start_host": "2026-11-19T01:49:39.131Z",
+        "lag_ms": 46.9,
+        "t_release_host": "2026-11-19T01:49:39.117Z",
+        "t_launch_host": "2026-11-19T01:49:39.131Z",
+        "release_lag_ms": 14.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 8,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:41.936Z",
+        "t_flick_host": "2026-11-19T01:49:41.936Z",
+        "t_detect_host": "2026-11-19T01:49:41.986Z",
+        "detect_lag_ms": 50.5,
+        "t_cast_start_host": "2026-11-19T01:49:41.998Z",
+        "lag_ms": 62.2,
+        "t_release_host": "2026-11-19T01:49:41.968Z",
+        "t_launch_host": "2026-11-19T01:49:41.998Z",
+        "release_lag_ms": 29.7,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 9,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:44.923Z",
+        "t_flick_host": "2026-11-19T01:49:44.922Z",
+        "t_detect_host": "2026-11-19T01:49:44.973Z",
+        "detect_lag_ms": 50.9,
+        "t_cast_start_host": "2026-11-19T01:49:44.981Z",
+        "lag_ms": 58.8,
+        "t_release_host": "2026-11-19T01:49:44.955Z",
+        "t_launch_host": "2026-11-19T01:49:44.981Z",
+        "release_lag_ms": 26.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 10,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:48.012Z",
+        "t_flick_host": "2026-11-19T01:49:48.012Z",
+        "t_detect_host": "2026-11-19T01:49:48.062Z",
+        "detect_lag_ms": 50.7,
+        "t_cast_start_host": "2026-11-19T01:49:48.064Z",
+        "lag_ms": 52.8,
+        "t_release_host": "2026-11-19T01:49:48.044Z",
+        "t_launch_host": "2026-11-19T01:49:48.064Z",
+        "release_lag_ms": 20.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 11,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:51.201Z",
+        "t_flick_host": "2026-11-19T01:49:51.200Z",
+        "t_detect_host": "2026-11-19T01:49:51.251Z",
+        "detect_lag_ms": 50.2,
+        "t_cast_start_host": "2026-11-19T01:49:51.248Z",
+        "lag_ms": 47.1,
+        "t_release_host": "2026-11-19T01:49:51.233Z",
+        "t_launch_host": "2026-11-19T01:49:51.248Z",
+        "release_lag_ms": 14.1,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 12,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:53.942Z",
+        "t_flick_host": "2026-11-19T01:49:53.942Z",
+        "t_detect_host": "2026-11-19T01:49:53.991Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:49:53.998Z",
+        "lag_ms": 55.8,
+        "t_release_host": "2026-11-19T01:49:53.974Z",
+        "t_launch_host": "2026-11-19T01:49:53.998Z",
+        "release_lag_ms": 23.6,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 13,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:56.784Z",
+        "t_flick_host": "2026-11-19T01:49:56.784Z",
+        "t_detect_host": "2026-11-19T01:49:56.833Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:49:56.847Z",
+        "lag_ms": 63.7,
+        "t_release_host": "2026-11-19T01:49:56.816Z",
+        "t_launch_host": "2026-11-19T01:49:56.847Z",
+        "release_lag_ms": 31.4,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 14,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:49:59.784Z",
+        "t_flick_host": "2026-11-19T01:49:59.784Z",
+        "t_detect_host": "2026-11-19T01:49:59.833Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:49:59.831Z",
+        "lag_ms": 46.4,
+        "t_release_host": "2026-11-19T01:49:59.816Z",
+        "t_launch_host": "2026-11-19T01:49:59.831Z",
+        "release_lag_ms": 14.1,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 15,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:02.873Z",
+        "t_flick_host": "2026-11-19T01:50:02.873Z",
+        "t_detect_host": "2026-11-19T01:50:02.924Z",
+        "detect_lag_ms": 50.9,
+        "t_cast_start_host": "2026-11-19T01:50:02.914Z",
+        "lag_ms": 40.6,
+        "t_release_host": "2026-11-19T01:50:02.907Z",
+        "t_launch_host": "2026-11-19T01:50:02.914Z",
+        "release_lag_ms": 6.9,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 16,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:06.121Z",
+        "t_flick_host": "2026-11-19T01:50:06.120Z",
+        "t_detect_host": "2026-11-19T01:50:06.170Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:06.180Z",
+        "lag_ms": 59.9,
+        "t_release_host": "2026-11-19T01:50:06.153Z",
+        "t_launch_host": "2026-11-19T01:50:06.180Z",
+        "release_lag_ms": 27.5,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 17,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:08.859Z",
+        "t_flick_host": "2026-11-19T01:50:08.859Z",
+        "t_detect_host": "2026-11-19T01:50:08.909Z",
+        "detect_lag_ms": 49.7,
+        "t_cast_start_host": "2026-11-19T01:50:08.914Z",
+        "lag_ms": 54.4,
+        "t_release_host": "2026-11-19T01:50:08.892Z",
+        "t_launch_host": "2026-11-19T01:50:08.914Z",
+        "release_lag_ms": 21.9,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 18,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:11.708Z",
+        "t_flick_host": "2026-11-19T01:50:11.708Z",
+        "t_detect_host": "2026-11-19T01:50:11.757Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:11.763Z",
+        "lag_ms": 55.8,
+        "t_release_host": "2026-11-19T01:50:11.740Z",
+        "t_launch_host": "2026-11-19T01:50:11.763Z",
+        "release_lag_ms": 23.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 19,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:14.696Z",
+        "t_flick_host": "2026-11-19T01:50:14.696Z",
+        "t_detect_host": "2026-11-19T01:50:14.746Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:14.747Z",
+        "lag_ms": 50.5,
+        "t_release_host": "2026-11-19T01:50:14.729Z",
+        "t_launch_host": "2026-11-19T01:50:14.747Z",
+        "release_lag_ms": 18.1,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 0.900146484375
+      },
+      {
+        "i": 20,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:17.789Z",
+        "t_flick_host": "2026-11-19T01:50:17.789Z",
+        "t_detect_host": "2026-11-19T01:50:17.839Z",
+        "detect_lag_ms": 49.8,
+        "t_cast_start_host": "2026-11-19T01:50:17.830Z",
+        "lag_ms": 41,
+        "t_release_host": "2026-11-19T01:50:17.822Z",
+        "t_launch_host": "2026-11-19T01:50:17.830Z",
+        "release_lag_ms": 8.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 0.900146484375
+      },
+      {
+        "i": 21,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:21.030Z",
+        "t_flick_host": "2026-11-19T01:50:21.030Z",
+        "t_detect_host": "2026-11-19T01:50:21.080Z",
+        "detect_lag_ms": 50.1,
+        "t_cast_start_host": "2026-11-19T01:50:21.080Z",
+        "lag_ms": 50,
+        "t_release_host": "2026-11-19T01:50:21.062Z",
+        "t_launch_host": "2026-11-19T01:50:21.080Z",
+        "release_lag_ms": 17.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 0.900146484375
+      },
+      {
+        "i": 22,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:23.772Z",
+        "t_flick_host": "2026-11-19T01:50:23.772Z",
+        "t_detect_host": "2026-11-19T01:50:23.821Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:23.830Z",
+        "lag_ms": 58.1,
+        "t_release_host": "2026-11-19T01:50:23.804Z",
+        "t_launch_host": "2026-11-19T01:50:23.830Z",
+        "release_lag_ms": 25.8,
+        "clock_offset_ms": 0.1,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 23,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:26.610Z",
+        "t_flick_host": "2026-11-19T01:50:26.609Z",
+        "t_detect_host": "2026-11-19T01:50:26.659Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:50:26.680Z",
+        "lag_ms": 70.1,
+        "t_release_host": "2026-11-19T01:50:26.642Z",
+        "t_launch_host": "2026-11-19T01:50:26.680Z",
+        "release_lag_ms": 37.8,
+        "clock_offset_ms": 0.1,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 24,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:29.600Z",
+        "t_flick_host": "2026-11-19T01:50:29.599Z",
+        "t_detect_host": "2026-11-19T01:50:29.649Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:50:29.646Z",
+        "lag_ms": 46.6,
+        "t_release_host": "2026-11-19T01:50:29.632Z",
+        "t_launch_host": "2026-11-19T01:50:29.646Z",
+        "release_lag_ms": 14.3,
+        "clock_offset_ms": 0.1,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 25,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:32.685Z",
+        "t_flick_host": "2026-11-19T01:50:32.685Z",
+        "t_detect_host": "2026-11-19T01:50:32.735Z",
+        "detect_lag_ms": 50.1,
+        "t_cast_start_host": "2026-11-19T01:50:32.729Z",
+        "lag_ms": 44.5,
+        "t_release_host": "2026-11-19T01:50:32.717Z",
+        "t_launch_host": "2026-11-19T01:50:32.729Z",
+        "release_lag_ms": 12.3,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 26,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:35.872Z",
+        "t_flick_host": "2026-11-19T01:50:35.872Z",
+        "t_detect_host": "2026-11-19T01:50:35.922Z",
+        "detect_lag_ms": 49.7,
+        "t_cast_start_host": "2026-11-19T01:50:35.913Z",
+        "lag_ms": 40.6,
+        "t_release_host": "2026-11-19T01:50:35.904Z",
+        "t_launch_host": "2026-11-19T01:50:35.913Z",
+        "release_lag_ms": 8.3,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 27,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:38.662Z",
+        "t_flick_host": "2026-11-19T01:50:38.662Z",
+        "t_detect_host": "2026-11-19T01:50:38.712Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:38.712Z",
+        "lag_ms": 50.1,
+        "t_release_host": "2026-11-19T01:50:38.695Z",
+        "t_launch_host": "2026-11-19T01:50:38.712Z",
+        "release_lag_ms": 17.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 28,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:41.498Z",
+        "t_flick_host": "2026-11-19T01:50:41.498Z",
+        "t_detect_host": "2026-11-19T01:50:41.548Z",
+        "detect_lag_ms": 50,
+        "t_cast_start_host": "2026-11-19T01:50:41.562Z",
+        "lag_ms": 64.1,
+        "t_release_host": "2026-11-19T01:50:41.530Z",
+        "t_launch_host": "2026-11-19T01:50:41.562Z",
+        "release_lag_ms": 31.9,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 29,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:44.487Z",
+        "t_flick_host": "2026-11-19T01:50:44.486Z",
+        "t_detect_host": "2026-11-19T01:50:44.536Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:44.529Z",
+        "lag_ms": 42.3,
+        "t_release_host": "2026-11-19T01:50:44.519Z",
+        "t_launch_host": "2026-11-19T01:50:44.529Z",
+        "release_lag_ms": 10,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 30,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:47.573Z",
+        "t_flick_host": "2026-11-19T01:50:47.573Z",
+        "t_detect_host": "2026-11-19T01:50:47.623Z",
+        "detect_lag_ms": 50.5,
+        "t_cast_start_host": "2026-11-19T01:50:47.629Z",
+        "lag_ms": 56,
+        "t_release_host": "2026-11-19T01:50:47.605Z",
+        "t_launch_host": "2026-11-19T01:50:47.629Z",
+        "release_lag_ms": 23.7,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 31,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:50.816Z",
+        "t_flick_host": "2026-11-19T01:50:50.816Z",
+        "t_detect_host": "2026-11-19T01:50:50.865Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:50:50.862Z",
+        "lag_ms": 45.9,
+        "t_release_host": "2026-11-19T01:50:50.848Z",
+        "t_launch_host": "2026-11-19T01:50:50.862Z",
+        "release_lag_ms": 13.7,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 32,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:53.557Z",
+        "t_flick_host": "2026-11-19T01:50:53.557Z",
+        "t_detect_host": "2026-11-19T01:50:53.607Z",
+        "detect_lag_ms": 49.9,
+        "t_cast_start_host": "2026-11-19T01:50:53.612Z",
+        "lag_ms": 54.8,
+        "t_release_host": "2026-11-19T01:50:53.589Z",
+        "t_launch_host": "2026-11-19T01:50:53.612Z",
+        "release_lag_ms": 22.5,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 33,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:56.394Z",
+        "t_flick_host": "2026-11-19T01:50:56.394Z",
+        "t_detect_host": "2026-11-19T01:50:56.443Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:50:56.445Z",
+        "lag_ms": 51.4,
+        "t_release_host": "2026-11-19T01:50:56.426Z",
+        "t_launch_host": "2026-11-19T01:50:56.445Z",
+        "release_lag_ms": 19.1,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 34,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:50:59.379Z",
+        "t_flick_host": "2026-11-19T01:50:59.379Z",
+        "t_detect_host": "2026-11-19T01:50:59.432Z",
+        "detect_lag_ms": 52.5,
+        "t_cast_start_host": "2026-11-19T01:50:59.428Z",
+        "lag_ms": 49.2,
+        "t_release_host": "2026-11-19T01:50:59.414Z",
+        "t_launch_host": "2026-11-19T01:50:59.428Z",
+        "release_lag_ms": 14.4,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 35,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:02.473Z",
+        "t_flick_host": "2026-11-19T01:51:02.473Z",
+        "t_detect_host": "2026-11-19T01:51:02.523Z",
+        "detect_lag_ms": 49.8,
+        "t_cast_start_host": "2026-11-19T01:51:02.528Z",
+        "lag_ms": 54.8,
+        "t_release_host": "2026-11-19T01:51:02.506Z",
+        "t_launch_host": "2026-11-19T01:51:02.528Z",
+        "release_lag_ms": 22.5,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.400146484375
+      },
+      {
+        "i": 36,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:05.665Z",
+        "t_flick_host": "2026-11-19T01:51:05.665Z",
+        "t_detect_host": "2026-11-19T01:51:05.714Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:05.728Z",
+        "lag_ms": 62.9,
+        "t_release_host": "2026-11-19T01:51:05.697Z",
+        "t_launch_host": "2026-11-19T01:51:05.728Z",
+        "release_lag_ms": 30.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.099853515625
+      },
+      {
+        "i": 37,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:08.402Z",
+        "t_flick_host": "2026-11-19T01:51:08.402Z",
+        "t_detect_host": "2026-11-19T01:51:08.453Z",
+        "detect_lag_ms": 50.6,
+        "t_cast_start_host": "2026-11-19T01:51:08.461Z",
+        "lag_ms": 59.3,
+        "t_release_host": "2026-11-19T01:51:08.435Z",
+        "t_launch_host": "2026-11-19T01:51:08.461Z",
+        "release_lag_ms": 25.8,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.099853515625
+      },
+      {
+        "i": 38,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:11.291Z",
+        "t_flick_host": "2026-11-19T01:51:11.291Z",
+        "t_detect_host": "2026-11-19T01:51:11.342Z",
+        "detect_lag_ms": 50.9,
+        "t_cast_start_host": "2026-11-19T01:51:11.361Z",
+        "lag_ms": 70.4,
+        "t_release_host": "2026-11-19T01:51:11.325Z",
+        "t_launch_host": "2026-11-19T01:51:11.361Z",
+        "release_lag_ms": 36.4,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 1.099853515625
+      },
+      {
+        "i": 39,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:14.281Z",
+        "t_flick_host": "2026-11-19T01:51:14.281Z",
+        "t_detect_host": "2026-11-19T01:51:14.330Z",
+        "detect_lag_ms": 49,
+        "t_cast_start_host": "2026-11-19T01:51:14.328Z",
+        "lag_ms": 46.6,
+        "t_release_host": "2026-11-19T01:51:14.313Z",
+        "t_launch_host": "2026-11-19T01:51:14.328Z",
+        "release_lag_ms": 14.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 40,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:17.370Z",
+        "t_flick_host": "2026-11-19T01:51:17.370Z",
+        "t_detect_host": "2026-11-19T01:51:17.419Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:51:17.427Z",
+        "lag_ms": 57.8,
+        "t_release_host": "2026-11-19T01:51:17.402Z",
+        "t_launch_host": "2026-11-19T01:51:17.427Z",
+        "release_lag_ms": 25.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 41,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:20.560Z",
+        "t_flick_host": "2026-11-19T01:51:20.560Z",
+        "t_detect_host": "2026-11-19T01:51:20.611Z",
+        "detect_lag_ms": 50.7,
+        "t_cast_start_host": "2026-11-19T01:51:20.611Z",
+        "lag_ms": 50.6,
+        "t_release_host": "2026-11-19T01:51:20.594Z",
+        "t_launch_host": "2026-11-19T01:51:20.611Z",
+        "release_lag_ms": 16.9,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 42,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:23.296Z",
+        "t_flick_host": "2026-11-19T01:51:23.296Z",
+        "t_detect_host": "2026-11-19T01:51:23.345Z",
+        "detect_lag_ms": 49.1,
+        "t_cast_start_host": "2026-11-19T01:51:23.344Z",
+        "lag_ms": 47.8,
+        "t_release_host": "2026-11-19T01:51:23.328Z",
+        "t_launch_host": "2026-11-19T01:51:23.344Z",
+        "release_lag_ms": 15.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 43,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:26.186Z",
+        "t_flick_host": "2026-11-19T01:51:26.186Z",
+        "t_detect_host": "2026-11-19T01:51:26.235Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:26.244Z",
+        "lag_ms": 58,
+        "t_release_host": "2026-11-19T01:51:26.218Z",
+        "t_launch_host": "2026-11-19T01:51:26.244Z",
+        "release_lag_ms": 25.8,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 44,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:29.173Z",
+        "t_flick_host": "2026-11-19T01:51:29.173Z",
+        "t_detect_host": "2026-11-19T01:51:29.223Z",
+        "detect_lag_ms": 49.9,
+        "t_cast_start_host": "2026-11-19T01:51:29.227Z",
+        "lag_ms": 54,
+        "t_release_host": "2026-11-19T01:51:29.205Z",
+        "t_launch_host": "2026-11-19T01:51:29.227Z",
+        "release_lag_ms": 21.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 45,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:32.261Z",
+        "t_flick_host": "2026-11-19T01:51:32.261Z",
+        "t_detect_host": "2026-11-19T01:51:32.312Z",
+        "detect_lag_ms": 51.4,
+        "t_cast_start_host": "2026-11-19T01:51:32.327Z",
+        "lag_ms": 65.9,
+        "t_release_host": "2026-11-19T01:51:32.293Z",
+        "t_launch_host": "2026-11-19T01:51:32.327Z",
+        "release_lag_ms": 33.6,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1
+      },
+      {
+        "i": 46,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:35.450Z",
+        "t_flick_host": "2026-11-19T01:51:35.450Z",
+        "t_detect_host": "2026-11-19T01:51:35.499Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:35.493Z",
+        "lag_ms": 43.6,
+        "t_release_host": "2026-11-19T01:51:35.482Z",
+        "t_launch_host": "2026-11-19T01:51:35.493Z",
+        "release_lag_ms": 11.3,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 47,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:38.185Z",
+        "t_flick_host": "2026-11-19T01:51:38.185Z",
+        "t_detect_host": "2026-11-19T01:51:38.234Z",
+        "detect_lag_ms": 49.2,
+        "t_cast_start_host": "2026-11-19T01:51:38.243Z",
+        "lag_ms": 58.7,
+        "t_release_host": "2026-11-19T01:51:38.217Z",
+        "t_launch_host": "2026-11-19T01:51:38.243Z",
+        "release_lag_ms": 26.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 48,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:41.025Z",
+        "t_flick_host": "2026-11-19T01:51:41.025Z",
+        "t_detect_host": "2026-11-19T01:51:41.074Z",
+        "detect_lag_ms": 49.4,
+        "t_cast_start_host": "2026-11-19T01:51:41.093Z",
+        "lag_ms": 68.7,
+        "t_release_host": "2026-11-19T01:51:41.057Z",
+        "t_launch_host": "2026-11-19T01:51:41.093Z",
+        "release_lag_ms": 36.4,
+        "clock_offset_ms": 0.3,
+        "sync_best_rtt_ms": 1.199951171875
+      },
+      {
+        "i": 49,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:43.970Z",
+        "t_flick_host": "2026-11-19T01:51:43.970Z",
+        "t_detect_host": "2026-11-19T01:51:44.019Z",
+        "detect_lag_ms": 49.5,
+        "t_cast_start_host": "2026-11-19T01:51:44.043Z",
+        "lag_ms": 73.5,
+        "t_release_host": "2026-11-19T01:51:44.002Z",
+        "t_launch_host": "2026-11-19T01:51:44.043Z",
+        "release_lag_ms": 40.9,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 0.800048828125
+      },
+      {
+        "i": 50,
+        "path": "mqtt-relay",
+        "source": "motion",
+        "t_flick_phone": "2026-11-19T01:51:47.050Z",
+        "t_flick_host": "2026-11-19T01:51:47.050Z",
+        "t_detect_host": "2026-11-19T01:51:47.099Z",
+        "detect_lag_ms": 49.3,
+        "t_cast_start_host": "2026-11-19T01:51:47.110Z",
+        "lag_ms": 60,
+        "t_release_host": "2026-11-19T01:51:47.082Z",
+        "t_launch_host": "2026-11-19T01:51:47.110Z",
+        "release_lag_ms": 27.7,
+        "clock_offset_ms": 0.2,
+        "sync_best_rtt_ms": 0.800048828125
+      }
+    ],
+    "stats": {
+      "n": 50,
+      "median": 54.2,
+      "p95": 70.1,
+      "detectMedian": 49.6,
+      "detectP95": 50.9,
+      "releaseMedian": 21.8,
+      "releaseP95": 36.4,
+      "hostFps": 29
+    }
+  },
+  "pairing": {
+    "clock": [
+      {
+        "at": "2026-11-19T01:49:21.499Z",
+        "ms": 9167,
+        "session": "F5F0"
+      }
+    ],
+    "session": "F5F0"
+  },
+  "reconnects": [],
+  "clockSync": [
+    {
+      "at": "2026-11-19T01:49:17.284Z",
+      "offset": 0.150146484375,
+      "bestRtt": 1.300048828125,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:49:22.687Z",
+      "offset": 0.19970703125,
+      "bestRtt": 1,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:49:32.688Z",
+      "offset": 0.25,
+      "bestRtt": 1,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:49:42.689Z",
+      "offset": 0.25,
+      "bestRtt": 1,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:49:52.689Z",
+      "offset": 0.199951171875,
+      "bestRtt": 1.199951171875,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:50:02.688Z",
+      "offset": 0.25,
+      "bestRtt": 1.400146484375,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:50:12.688Z",
+      "offset": 0.300048828125,
+      "bestRtt": 0.900146484375,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:50:22.687Z",
+      "offset": 0.099853515625,
+      "bestRtt": 1.199951171875,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:50:32.687Z",
+      "offset": 0.199951171875,
+      "bestRtt": 1.199951171875,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:50:42.690Z",
+      "offset": 0.25,
+      "bestRtt": 1,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:50:52.689Z",
+      "offset": 0.199951171875,
+      "bestRtt": 1.400146484375,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:51:02.689Z",
+      "offset": 0.150146484375,
+      "bestRtt": 1.099853515625,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:51:12.687Z",
+      "offset": 0.25,
+      "bestRtt": 1,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:51:22.688Z",
+      "offset": 0.25,
+      "bestRtt": 1,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:51:32.694Z",
+      "offset": 0.25,
+      "bestRtt": 1.199951171875,
+      "n": 10
+    },
+    {
+      "at": "2026-11-19T01:51:42.692Z",
+      "offset": 0.199951171875,
+      "bestRtt": 0.800048828125,
+      "n": 10
+    }
+  ],
+  "pingRttHalf": {
+    "n": 314,
+    "median": 0.8,
+    "p95": 1.8,
+    "samples": [
+      {
+        "at": "2026-11-19T01:49:16.924Z",
+        "rttHalf": 1.8,
+        "path": null
+      },
+      {
+        "at": "2026-11-19T01:49:16.962Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.002Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.043Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.086Z",
+        "rttHalf": 2.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.124Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.165Z",
+        "rttHalf": 1.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.204Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.244Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.284Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:17.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:18.327Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:19.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:20.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:21.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.327Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.368Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.407Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.447Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.488Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.528Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.568Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.607Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.648Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:22.687Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:23.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:24.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:25.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:26.327Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:27.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:28.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:29.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:30.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:31.328Z",
+        "rttHalf": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.328Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.367Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.407Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.447Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.488Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.527Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.568Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.607Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.647Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:32.688Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:33.326Z",
+        "rttHalf": 0.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:34.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:35.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:36.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:37.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:38.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:39.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:40.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:41.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.327Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.370Z",
+        "rttHalf": 2.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.407Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.447Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.487Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.528Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.567Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.607Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.648Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:42.689Z",
+        "rttHalf": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:43.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:44.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:45.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:46.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:47.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:48.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:49.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:50.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:51.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.327Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.368Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.407Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.447Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.487Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.527Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.568Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.608Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.649Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:52.690Z",
+        "rttHalf": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:53.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:54.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:55.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:56.330Z",
+        "rttHalf": 1.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:57.329Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:58.328Z",
+        "rttHalf": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:49:59.329Z",
+        "rttHalf": 1.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:00.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:01.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.367Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.407Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.448Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.489Z",
+        "rttHalf": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.528Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.568Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.608Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.649Z",
+        "rttHalf": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:02.689Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:03.328Z",
+        "rttHalf": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:04.328Z",
+        "rttHalf": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:05.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:06.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:07.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:08.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:09.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:10.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:11.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.327Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.366Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.407Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.448Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.487Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.527Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.567Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.608Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.648Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:12.688Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:13.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:14.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:15.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:16.328Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:17.330Z",
+        "rttHalf": 2.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:18.327Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:19.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:20.327Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:21.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.367Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.408Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.448Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.487Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.528Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.568Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.607Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.647Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:22.688Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:23.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:24.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:25.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:26.330Z",
+        "rttHalf": 2.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:27.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:28.327Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:29.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:30.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:31.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.328Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.367Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.407Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.447Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.488Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.527Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.567Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.608Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.648Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:32.688Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:33.328Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:34.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:35.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:36.329Z",
+        "rttHalf": 2.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:37.327Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:38.326Z",
+        "rttHalf": 0.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:39.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:40.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:41.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.369Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.409Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.449Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.489Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.529Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.569Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.609Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.649Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:42.690Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:43.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:44.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:45.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:46.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:47.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:48.330Z",
+        "rttHalf": 2.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:49.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:50.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:51.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.327Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.368Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.409Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.449Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.489Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.529Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.569Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.609Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.649Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:52.690Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:53.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:54.327Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:55.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:56.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:57.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:58.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:50:59.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:00.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:01.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.329Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.330Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.369Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.410Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.450Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.489Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.532Z",
+        "rttHalf": 2.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.569Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.610Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.649Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:02.689Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:03.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:04.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:05.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:06.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:07.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:08.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:09.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:10.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:11.327Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.327Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.327Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.366Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.408Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.446Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.487Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.527Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.567Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.608Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.647Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:12.688Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:13.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:14.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:15.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:16.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:17.326Z",
+        "rttHalf": 0.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:18.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:19.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:20.327Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:21.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.367Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.406Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.446Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.488Z",
+        "rttHalf": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.528Z",
+        "rttHalf": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.571Z",
+        "rttHalf": 2.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.607Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.647Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:22.688Z",
+        "rttHalf": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:23.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:24.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:25.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:26.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:27.328Z",
+        "rttHalf": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:28.329Z",
+        "rttHalf": 1.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:29.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:30.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:31.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.367Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.407Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.446Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.488Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.531Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.571Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.611Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.652Z",
+        "rttHalf": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:32.695Z",
+        "rttHalf": 2.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:33.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:34.327Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:35.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:36.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:37.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:38.326Z",
+        "rttHalf": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:39.327Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:40.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.329Z",
+        "rttHalf": 2.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.330Z",
+        "rttHalf": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.368Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.410Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.450Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.492Z",
+        "rttHalf": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.533Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.573Z",
+        "rttHalf": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.613Z",
+        "rttHalf": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.652Z",
+        "rttHalf": 0.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.693Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.326Z",
+        "rttHalf": 0.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.330Z",
+        "rttHalf": 2.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.329Z",
+        "rttHalf": 2.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.326Z",
+        "rttHalf": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.326Z",
+        "rttHalf": 0.6,
+        "path": "mqtt-relay"
+      }
+    ]
+  },
+  "deliveryAge": {
+    "n": 9511,
+    "median": 1,
+    "p95": 2.3,
+    "samples": [
+      {
+        "at": "2026-11-19T01:51:41.042Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.061Z",
+        "age": 4.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.074Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.090Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.106Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.123Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.139Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.155Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.171Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.188Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.204Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.220Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.236Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.255Z",
+        "age": 3.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.268Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.286Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.302Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.319Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.335Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.352Z",
+        "age": 1.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.367Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.383Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.400Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.416Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.432Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.449Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.465Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.481Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.499Z",
+        "age": 2.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.514Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.529Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.545Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.561Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.577Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.597Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.611Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.628Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.643Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.659Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.675Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.691Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.707Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.723Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.739Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.755Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.771Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.787Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.803Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.819Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.835Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.851Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.867Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.884Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.899Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.916Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.931Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.947Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.963Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.979Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:41.995Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.012Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.028Z",
+        "age": 2.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.043Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.063Z",
+        "age": 4.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.075Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.093Z",
+        "age": 2.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.107Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.123Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.139Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.155Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.172Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.190Z",
+        "age": 3.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.203Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.222Z",
+        "age": 3.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.235Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.254Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.268Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.283Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.299Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.315Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.332Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.348Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.363Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.380Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.395Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.411Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.428Z",
+        "age": 1.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.444Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.459Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.475Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.493Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.508Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.523Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.542Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.555Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.571Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.587Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.603Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.620Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.635Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.651Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.667Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.683Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.699Z",
+        "age": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.715Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.731Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.747Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.763Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.779Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.796Z",
+        "age": 2.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.811Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.827Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.846Z",
+        "age": 3.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.860Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.875Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.891Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.908Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.924Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.940Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.955Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.972Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:42.987Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.006Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.020Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.036Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.051Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.067Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.083Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.100Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.118Z",
+        "age": 3.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.131Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.147Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.163Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.179Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.195Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.211Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.227Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.244Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.259Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.281Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.291Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.308Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.323Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.339Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.355Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.371Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.387Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.403Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.419Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.436Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.451Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.470Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.486Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.502Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.518Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.534Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.551Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.567Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.583Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.599Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.615Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.631Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.648Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.664Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.680Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.696Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.712Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.729Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.745Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.761Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.778Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.794Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.811Z",
+        "age": 2.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.826Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.843Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.858Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.874Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.890Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.906Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.923Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.939Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.955Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.971Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:43.987Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.004Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.020Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.036Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.052Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.069Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.085Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.193Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.208Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.224Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.241Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.257Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.275Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.291Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.307Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.323Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.339Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.355Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.372Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.388Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.404Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.421Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.436Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.453Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.469Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.484Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.500Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.517Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.533Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.549Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.565Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.581Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.597Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.613Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.635Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.651Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.668Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.683Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.699Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.716Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.731Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.747Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.764Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.779Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.797Z",
+        "age": 2.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.813Z",
+        "age": 3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.829Z",
+        "age": 2.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.843Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.859Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.875Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.891Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.908Z",
+        "age": 2.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.923Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.939Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.955Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.972Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:44.987Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.003Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.019Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.035Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.051Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.067Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.084Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.099Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.115Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.131Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.148Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.164Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.179Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.195Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.212Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.228Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.243Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.259Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.277Z",
+        "age": 3.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.291Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.310Z",
+        "age": 3.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.324Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.340Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.355Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.372Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.387Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.404Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.419Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.435Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.451Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.468Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.483Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.500Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.515Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.531Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.548Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.563Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.579Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.595Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.611Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.628Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.643Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.670Z",
+        "age": 11.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.685Z",
+        "age": 8.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.691Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.708Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.723Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.740Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.756Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.771Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.787Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.803Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.819Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.835Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.851Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.867Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.883Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.902Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.916Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.932Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.947Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.963Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.980Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:45.995Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.012Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.028Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.043Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.060Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.075Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.091Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.107Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.123Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.139Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.155Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.172Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.187Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.203Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.220Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.235Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.251Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.267Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.284Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.299Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.315Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.331Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.347Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.364Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.380Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.396Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.411Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.427Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.443Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.459Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.476Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.491Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.508Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.524Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.532Z",
+        "age": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.548Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.566Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.582Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.598Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.614Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.632Z",
+        "age": 2.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.647Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.664Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.680Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.696Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.713Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.728Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.745Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.761Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.777Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.793Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.809Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.825Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.841Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.858Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.874Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.890Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.906Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.922Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.939Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.954Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.970Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:46.986Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.003Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.019Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.035Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.051Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.068Z",
+        "age": 2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.084Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.099Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.115Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.132Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.148Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.164Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.180Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.196Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.213Z",
+        "age": 1.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.229Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.245Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.261Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.277Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.293Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.309Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.326Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.342Z",
+        "age": 1.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.358Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.374Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.390Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.406Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.423Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.439Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.455Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.471Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.487Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.504Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.519Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.535Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.552Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.568Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.584Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.600Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.627Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.643Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.659Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.675Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.691Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.707Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.723Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.739Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.755Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.775Z",
+        "age": 4.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.787Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.804Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.819Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.835Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.851Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.870Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.883Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.900Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.916Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.931Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.947Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.964Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.979Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:47.995Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.011Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.027Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.043Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.059Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.075Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.091Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.107Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.123Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.139Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.156Z",
+        "age": 1.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.171Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.190Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.203Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.220Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.235Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.251Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.268Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.283Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.300Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.315Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.331Z",
+        "age": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.347Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.364Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.379Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.403Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.412Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.428Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.443Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.460Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.475Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.491Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.507Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.523Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.540Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.555Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.573Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.588Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.605Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.619Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.636Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.651Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.668Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.683Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.700Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.715Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.732Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.747Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.763Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.779Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.795Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.811Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.827Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.843Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.859Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.875Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.891Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.907Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.923Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.939Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.955Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.972Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:48.988Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.003Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.019Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.035Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.051Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.067Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.084Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.099Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.115Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.132Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.150Z",
+        "age": 3.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.163Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.179Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.195Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.211Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.227Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.243Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.259Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.275Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.293Z",
+        "age": 2.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.307Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.326Z",
+        "age": 0.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.339Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.356Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.371Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.389Z",
+        "age": 3.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.403Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.419Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.435Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.451Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.467Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.485Z",
+        "age": 2.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.499Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.515Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.531Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.547Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.563Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.579Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.595Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.613Z",
+        "age": 2.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.627Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.643Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.659Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.677Z",
+        "age": 2.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.691Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.707Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.723Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.739Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.756Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.773Z",
+        "age": 3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.787Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.803Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.819Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.835Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.851Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.867Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.883Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.901Z",
+        "age": 2.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.915Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.932Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.947Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.964Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.979Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:49.995Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.011Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.027Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.044Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.059Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.075Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.091Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.108Z",
+        "age": 1.3,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.126Z",
+        "age": 1.2,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.140Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.156Z",
+        "age": 1.5,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.172Z",
+        "age": 1.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.187Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.203Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.219Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.235Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.251Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.268Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.284Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.299Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.316Z",
+        "age": 1.4,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.331Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.347Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.363Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.380Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.395Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.411Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.427Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.443Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.459Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.475Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.491Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.507Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.523Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.539Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.555Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.571Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.587Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.603Z",
+        "age": 0.7,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.619Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.635Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.651Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.667Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.683Z",
+        "age": 0.9,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.699Z",
+        "age": 1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.716Z",
+        "age": 1.6,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.731Z",
+        "age": 1.1,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.747Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      },
+      {
+        "at": "2026-11-19T01:51:50.763Z",
+        "age": 0.8,
+        "path": "mqtt-relay"
+      }
+    ]
+  },
+  "events": [
+    {
+      "at": "2026-11-19T01:49:12.324Z",
+      "line": "session F5F0 ready (code fresh)"
+    },
+    {
+      "at": "2026-11-19T01:49:13.534Z",
+      "line": "signaling broker connected"
+    },
+    {
+      "at": "2026-11-19T01:49:13.542Z",
+      "line": "MQTT relay connected (ws://127.0.0.1:9001)"
+    },
+    {
+      "at": "2026-11-19T01:49:16.919Z",
+      "line": "pad paired over MQTT relay"
+    },
+    {
+      "at": "2026-11-19T01:49:16.924Z",
+      "line": "active path -> mqtt-relay"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+# grep-clean  2026-11-18 21:39 EST
+# scope: 65 files that git commits (git ls-files; node_modules, dist, target excluded by .gitignore)
+
+## personal: street number (4 digits)
+(no matches)
+
+## personal: street name
+(no matches)
+
+## personal: owner's handle
+(no matches)
+
+## personal: owner's surname (case-insensitive)
+(no matches)
+
+## personal: owner's first name, long form
+(no matches)
+
+## personal: owner's first name, short form (word)
+(no matches)
+
+## email addresses
+(no matches)
+
+## AWS access keys
+(no matches)
+
+## GitHub tokens
+(no matches)
+
+## OpenAI / Stripe-style keys
+(no matches)
+
+## Slack tokens
+(no matches)
+
+## Google API keys
+(no matches)
+
+## private keys
+(no matches)
+
+## JWTs
+(no matches)
+
+## key/token/password literals
+(no matches)
+
+## GitHub Actions secrets references
+(no matches)
+
